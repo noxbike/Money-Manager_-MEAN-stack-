@@ -1,0 +1,52 @@
+#dataScreen{
+    width: 700px;
+    margin:auto;
+    border-radius: 16px;
+    height: 74vh;
+}
+
+
+#dataScreen .itemExpense{
+    margin-bottom: 40px;
+    padding: 15px;
+    background-color: rgb(55, 55, 55);
+    border-radius: 6px;
+}
+#dataScreen .header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#dataScreen .libelé{
+    text-align: left;
+    width: 70%;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+#dataScreen .date, #dataScreen .amount{
+    width: 10%;
+    font-weight: 700;
+    color: rgba(128, 128, 128, 0.895);
+    font-size: 25px;
+}
+
+#dataScreen .date{
+    border-right: 1px solid rgba(128, 128, 128, 0.413);
+}
+
+#dataScreen .tag{
+    font-size: 14px;
+}
+#dataScreen .charge{
+    border-radius: 50px;
+    color: white;
+    height: 25px;
+    font-weight: 500;
+    font-size: 14px;
+    background-color: rgba(0, 128, 0, 0.425);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

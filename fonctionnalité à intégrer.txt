@@ -1,0 +1,38 @@
+- Afficher la somme Total restant
+
+------écran des dépenses--------
+
+- Somme dépenser au quotidien
+	- tag qui permet d'identifier la dépense(matériel, essence, salaire employé, frais, prélèvement, repas, réparation/maintenance, impot, urssaf)
+	- Catégorisation des charges on non
+	- La Date qui permet de connaitre le jour on dépense
+	- Pouvoir ajouter le ticket ou la facture pour justifier la dépense(photo)
+
+------écran des rentrer d'argent---------
+
+- Virement reçu
+	- Formulaire
+		- Somme reçus
+		- Généré un numéro de facture
+		- Info sur l'expéditeur
+			- L'enregistré en base de donnée si non existant
+		- Raison de la transaction
+		- La date de émission facture
+		- La date de réception d'argent
+		- Sous-traitance ou client ?
+
+	- Facturation automatiquement télécharger et sauvegarder en base de donnée
+
+-----écran des statistique------
+
+- Donné statistique des dépenses
+	- Regroupé par tag
+	- Regroupé par mois
+	- Regroupé par trimestre
+	- Regroupé par ans
+
+- Donné statistique des rentrer d'argent
+	- Regroupé par expéditeur
+	- Regroupé par mois
+	- Regroupé par trimestre
+	- Regroupé par ans

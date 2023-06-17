@@ -1,0 +1,20 @@
+$colorfont: rgb(68, 84, 97);
+$colorborder: rgb(209, 209, 209);
+$fontFamily: arial, helvet, sans-serif;
+
+#balance{
+    font-family: $fontFamily;
+    max-width: 600px;
+    margin: auto;
+    padding: 30px;
+    width: 100%;
+    border-bottom: 2px solid rgba(128, 128, 128, 0.11);
+}
+
+#balance .total{
+    text-align: right;
+}
+
+#balance h4{
+    color:rgba(128, 128, 128, 0.438);
+}
