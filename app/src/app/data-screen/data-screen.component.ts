@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ExpensesDataService } from '../services/expensesData/expenses-data.service';
-
 @Component({
   selector: 'app-data-screen',
   templateUrl: './data-screen.component.html',
-  styleUrls: ['./data-screen.component.scss']
+  styleUrls: ['./data-screen.component.scss'],
 })
 export class DataScreenComponent implements OnInit {
   data: Array<any> = [];

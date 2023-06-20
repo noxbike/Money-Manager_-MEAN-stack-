@@ -36,3 +36,7 @@
 	- Regroupé par mois
 	- Regroupé par trimestre
 	- Regroupé par ans
+
+3 écran devront etre créé statistique, ajout de dépense, création de facture
+
+menu sur le coté gauche expense, Facturation, statistique, logout
