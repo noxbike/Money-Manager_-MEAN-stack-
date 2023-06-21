@@ -1,0 +1,30 @@
+#top-menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    background-color: #424242;
+    box-shadow: 0 0 12px black;
+    z-index: 5;
+    .logo{
+        padding-left: 10px;
+        font-weight: 600;
+    }
+    .profile{
+        font-size: 16px;
+        width: 10%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        
+        align-items: center;
+        img{
+            margin:0 10px;
+            height: 40px;
+            width: 40px;
+            border-radius: 50px;
+        }
+    }
+}

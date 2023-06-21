@@ -39,4 +39,4 @@
 
 3 écran devront etre créé statistique, ajout de dépense, création de facture
 
-menu sur le coté gauche expense, Facturation, statistique, logout
+menu sur le coté gauche home, Facturation, statistique, logout

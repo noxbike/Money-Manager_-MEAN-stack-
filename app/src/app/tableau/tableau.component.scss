@@ -1,7 +1,10 @@
 /* Structure */
 #data-screen{
-    width: 700px;
+    width: 500px;
+    overflow-y: auto;
+    height: 400px;
     margin: auto;
+    border-radius: 10px;
 }
 table {
   width: 100%;

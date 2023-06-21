@@ -1,13 +1,31 @@
-$colorfont: rgb(68, 84, 97);
-$colorborder: rgb(209, 209, 209);
-$fontFamily: arial, helvet, sans-serif;
-
 #balance{
-    font-family: $fontFamily;
-    max-width: 600px;
+    max-width: 500px;
     margin: auto;
-    padding: 30px;
     width: 100%;
+    background-color: #424242;
+    margin: 50px auto;
+    border-radius: 10px;
+    .container{
+        padding: 30px;
+    }
+    .addsection{
+        display: flex;
+        flex-direction: row;
+        padding: 30px;
+        .item{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            margin-right: 40px;
+            
+            p{
+                margin-top: auto;
+                margin-bottom: auto;
+                margin-left: 10px;
+            }
+        }
+    }
 }
 
 #balance .total{
@@ -15,5 +33,5 @@ $fontFamily: arial, helvet, sans-serif;
 }
 
 #balance h4{
-    color:rgba(128, 128, 128, 0.438);
+    color:rgb(142, 142, 142);
 }
