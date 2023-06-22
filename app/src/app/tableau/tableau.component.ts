@@ -25,6 +25,7 @@ export interface itemExpense {
 export class TableauComponent implements OnInit {
   displayedColumns: string[] = ['Date', 'Name', 'Amount'];
   dataSource = new MatTableDataSource(this._expensesService.getExpenses());
+  month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct','Nov', 'Dec'];
 
   constructor(private _expensesService: ExpensesDataService){
 
@@ -32,6 +33,12 @@ export class TableauComponent implements OnInit {
 
   ngOnInit(): void {
     this._expensesService.generateData();
+  }
+
+  formatDate(date: Date):string{
+    let dateMonth = date.getMonth();
+    let dateDate = date.getDate();
+    return `${this.month[dateMonth]} ${dateDate}`;
   }
   
   applyFilter(event: Event) {

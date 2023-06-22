@@ -6,6 +6,20 @@
     margin: auto;
     border-radius: 10px;
 }
+
+::-webkit-scrollbar{
+    width: 5px;
+    border-radius: 25px;
+}
+
+::-webkit-scrollbar-track {
+    background: #424242;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(46, 46, 46);
+}
+
 table {
   width: 100%;
 }

@@ -10,10 +10,17 @@ import { DividerMatComponent } from './mat-component/divider-mat/divider-mat.com
 import { TableauComponent } from './tableau/tableau.component';
 import { TopMenuComponent } from './top-menu/top-menu.component';
 import { MenuComponent } from './menu/menu.component';
+import { ChartComponent } from './chart/chart.component';
+import { HomeComponent } from './layout/home/home.component';
+import { FactureComponent } from './facture/facture.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
+    FactureComponent,
+    ChartComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,6 +32,7 @@ import { MenuComponent } from './menu/menu.component';
     TopMenuComponent,
     TotalBalanceComponent,
     MenuComponent,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
