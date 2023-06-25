@@ -19,7 +19,6 @@ import { NgChartsModule } from 'ng2-charts';
   declarations: [
     AppComponent,
     HomeComponent,
-    FactureComponent,
     ChartComponent,
   ],
   imports: [
@@ -32,6 +31,7 @@ import { NgChartsModule } from 'ng2-charts';
     TopMenuComponent,
     TotalBalanceComponent,
     MenuComponent,
+    FactureComponent,
     NgChartsModule
   ],
   providers: [],
