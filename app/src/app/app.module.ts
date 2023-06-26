@@ -14,6 +14,8 @@ import { ChartComponent } from './chart/chart.component';
 import { HomeComponent } from './layout/home/home.component';
 import { FactureComponent } from './facture/facture.component';
 import { NgChartsModule } from 'ng2-charts';
+import { AddExpenseComponent } from './add-expense/add-expense.component';
+import { AddIncomeComponent } from './add-income/add-income.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { NgChartsModule } from 'ng2-charts';
     TotalBalanceComponent,
     MenuComponent,
     FactureComponent,
+    AddExpenseComponent,
+    AddIncomeComponent,
     NgChartsModule
   ],
   providers: [],

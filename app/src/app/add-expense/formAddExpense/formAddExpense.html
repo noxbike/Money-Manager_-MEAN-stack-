@@ -1,0 +1,35 @@
+<h1 mat-dialog-title>Add Expense</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>How much spending?</mat-label>
+    <input matInput>
+  </mat-form-field>
+  <p>What you pay choose category ?</p>
+  <mat-form-field>
+    <mat-label>Select</mat-label>
+    <mat-select>
+      <mat-option value="one">First option</mat-option>
+      <mat-option value="two">Second option</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <p>date you pay</p>
+  <mat-form-field class="example-full-width">
+    <mat-label>Choose a date</mat-label>
+    <input matInput [matDatepicker]="picker">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker">
+      <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+    </mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <p>Charge ou pas ?</p>
+  <section class="example-section">
+    <mat-checkbox class="example-margin">Charge</mat-checkbox>
+  </section>
+  <p>Justificatif</p>
+  <input type="file"/>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button mat-dialog-close cdkFocusInitial>Save</button>
+</div>
