@@ -1,9 +1,33 @@
 <h1 mat-dialog-title>Add Income</h1>
-<div mat-dialog-content>
-  <p>How much ?</p>
-  <p>Who pay ?</p>
-  <p>date you receive it</p>
+<div mat-dialog-content class="container-form">
+  <p>Income</p>
+  <mat-form-field class="custom-form-field">
+    <mat-label>How much spending?</mat-label>
+    <input matInput>
+  </mat-form-field>
+
+  <label>Name</label>
+  <mat-form-field class="custom-form-field">
+    <mat-label>Mr payet..</mat-label>
+    <input matInput>
+  </mat-form-field>
+  
+  <p>When</p>
+  <mat-form-field class="custom-form-field">
+    <mat-label>Choose a date</mat-label>
+    <input matInput [matDatepicker]="picker">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
   <p>Entreprise ou particulier ?</p>
+  <mat-form-field class="custom-form-field">
+    <mat-label>Select</mat-label>
+    <mat-select>
+      <mat-option value="Entreprise">Entreprise</mat-option>
+      <mat-option value="Particulier">Particulier</mat-option>
+    </mat-select>
+  </mat-form-field>
 </div>
 <div mat-dialog-actions>
   <button mat-button mat-dialog-close>Cancel</button>

@@ -1,33 +1,36 @@
 <h1 mat-dialog-title>Add Expense</h1>
-<div mat-dialog-content>
-  <mat-form-field>
-    <mat-label>How much spending?</mat-label>
+<div mat-dialog-content class="container-form">
+
+  <label>Spent</label>
+  <mat-form-field class="custom-form-field">
+    <mat-label>- $100</mat-label>
     <input matInput>
   </mat-form-field>
-  <p>What you pay choose category ?</p>
-  <mat-form-field>
+
+  <label>For</label>
+  <mat-form-field class="custom-form-field">
     <mat-label>Select</mat-label>
     <mat-select>
-      <mat-option value="one">First option</mat-option>
-      <mat-option value="two">Second option</mat-option>
+      <mat-option *ngFor="let item of tag; let i = index" value="item">{{item}}</mat-option>
     </mat-select>
   </mat-form-field>
-  <p>date you pay</p>
-  <mat-form-field class="example-full-width">
+
+  <label>When</label>
+  <mat-form-field class="custom-form-field">
     <mat-label>Choose a date</mat-label>
     <input matInput [matDatepicker]="picker">
     <mat-hint>MM/DD/YYYY</mat-hint>
-    <mat-datepicker-toggle matIconSuffix [for]="picker">
-      <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
-    </mat-datepicker-toggle>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
-  <p>Charge ou pas ?</p>
-  <section class="example-section">
+  
+  <p>Justificatif</p>
+  <input type="file"  id="customFileInput" style="display: none;" (change)="handleFileInputChange($event)"/>
+  <label for="customFileInput" id="customFileInputLabel">{{ selectedFileName || "Choisir un fichier" }}</label>
+  
+  <section class="custom-form-field" >
     <mat-checkbox class="example-margin">Charge</mat-checkbox>
   </section>
-  <p>Justificatif</p>
-  <input type="file"/>
 </div>
 <div mat-dialog-actions>
   <button mat-button mat-dialog-close>Cancel</button>

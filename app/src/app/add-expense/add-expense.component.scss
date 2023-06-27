@@ -3,6 +3,18 @@ button {
     cursor: pointer;
   }
 
+.container-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .custom-form-field {
+        width: 100%;
+        margin: 10px auto;
+    
+    }
+}
+  
+
 .item{
     display: flex;
     flex-direction: row;
