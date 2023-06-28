@@ -1,17 +1,37 @@
 #invoice{
     padding-left: 50px;
+    width: 80%;
+    margin: auto;
     .header{
-        width: 700px;
         margin: 50px auto;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        align-items: center;
+        button{
+            margin: 0 15px;
+        }
+        .left{
+            display: flex;
+            flex-direction: row;
+            div{
+                margin-right: 20px;
+                .custom-input{
+                width: 300px;
+                }
+                .custom-datepicker{
+                width: 170px;
+                }
+            }
+        }
     }
     .list{
-        width: 700px;
         margin: 50px auto;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        .custom-list{
+            width: 100%;
+        }
     }
 }

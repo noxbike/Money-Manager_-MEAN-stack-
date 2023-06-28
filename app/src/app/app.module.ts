@@ -23,8 +23,6 @@ import { StatistiqueViewComponent } from './layout/statistique-view/statistique-
     AppComponent,
     HomeComponent,
     ChartComponent,
-    CreateEstimateInvoiceComponent,
-    StatistiqueViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +36,8 @@ import { StatistiqueViewComponent } from './layout/statistique-view/statistique-
     FactureComponent,
     AddExpenseComponent,
     AddIncomeComponent,
+    CreateEstimateInvoiceComponent,
+    StatistiqueViewComponent,
     NgChartsModule
   ],
   providers: [],
