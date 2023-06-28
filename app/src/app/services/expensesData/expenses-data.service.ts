@@ -1,6 +1,5 @@
 import { Injectable, OnInit } from '@angular/core';
 import { Expense } from 'src/app/interfaces/expense';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

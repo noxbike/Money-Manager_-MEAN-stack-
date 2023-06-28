@@ -2,7 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { ExpensesDataService } from '../services/expensesData/expenses-data.service';
+import { ExpensesDataService } from '../../services/expensesData/expenses-data.service';
 
 export interface itemExpense {
   name: string;
@@ -27,9 +27,7 @@ export class TableauComponent implements OnInit {
   dataSource = new MatTableDataSource(this._expensesService.getExpenses());
   month = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct','Nov', 'Dec'];
 
-  constructor(private _expensesService: ExpensesDataService){
-
-  }
+  constructor(private _expensesService: ExpensesDataService){}
 
   ngOnInit(): void {
     this._expensesService.generateData();

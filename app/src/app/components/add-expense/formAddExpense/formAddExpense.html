@@ -1,23 +1,20 @@
 <h1 mat-dialog-title>Add Expense</h1>
 <div mat-dialog-content class="container-form">
 
-  <label>Spent</label>
   <mat-form-field class="custom-form-field">
-    <mat-label>- $100</mat-label>
+    <mat-label>Spent</mat-label>
     <input matInput>
   </mat-form-field>
 
-  <label>For</label>
   <mat-form-field class="custom-form-field">
-    <mat-label>Select</mat-label>
+    <mat-label>For...</mat-label>
     <mat-select>
       <mat-option *ngFor="let item of tag; let i = index" value="item">{{item}}</mat-option>
     </mat-select>
   </mat-form-field>
 
-  <label>When</label>
   <mat-form-field class="custom-form-field">
-    <mat-label>Choose a date</mat-label>
+    <mat-label>When...</mat-label>
     <input matInput [matDatepicker]="picker">
     <mat-hint>MM/DD/YYYY</mat-hint>
     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>

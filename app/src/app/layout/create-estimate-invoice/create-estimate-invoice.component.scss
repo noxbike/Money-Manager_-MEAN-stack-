@@ -1,0 +1,17 @@
+#invoice{
+    padding-left: 50px;
+    .header{
+        width: 700px;
+        margin: 50px auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .list{
+        width: 700px;
+        margin: 50px auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}

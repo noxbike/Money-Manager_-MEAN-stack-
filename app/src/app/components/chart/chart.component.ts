@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartConfiguration, ChartOptions, ChartType } from "chart.js";
-import { ExpensesDataService } from '../services/expensesData/expenses-data.service';
+import { ExpensesDataService } from '../../services/expensesData/expenses-data.service';
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.component.html',
