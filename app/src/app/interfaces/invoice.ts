@@ -1,4 +1,4 @@
-interface Invoice {
+export interface Invoice {
     date: Date;
     url: string;
     invoiceNumber: string;
