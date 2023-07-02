@@ -17,6 +17,9 @@ import { AddExpenseComponent } from './components/add-expense/add-expense.compon
 import { AddIncomeComponent } from './components/add-income/add-income.component';
 import { CreateEstimateInvoiceComponent } from './layout/create-estimate-invoice/create-estimate-invoice.component';
 import { StatistiqueViewComponent } from './layout/statistique-view/statistique-view.component';
+import { NewInvoiceComponent } from './components/new-invoice/new-invoice.component';
+import { NewEstimateComponent } from './components/new-estimate/new-estimate.component';
+import { ViewInvoiceComponent } from './view-invoice/view-invoice.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +41,10 @@ import { StatistiqueViewComponent } from './layout/statistique-view/statistique-
     AddIncomeComponent,
     CreateEstimateInvoiceComponent,
     StatistiqueViewComponent,
-    NgChartsModule
+    NgChartsModule,
+    NewInvoiceComponent,
+    NewEstimateComponent,
+    ViewInvoiceComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,74 @@
+<div class="example-invoice">
+    <div class="header">
+        <div class="left">
+            <div class="logo">
+                <img src="assets/logoMorel.png" width="150px">
+            </div>
+            <p><strong>{{infoBusiness.name}}</strong><br/>
+            {{infoBusiness.ownerName}}<br/>
+            {{infoBusiness.address}}<br/>
+            {{infoBusiness.email}}<br/>
+            {{infoBusiness.phoneNumber}}</p>
+        </div>
+        <div class="right">
+            <div class="invoice-info">
+                <p>Date: {{ date | date:'dd/MM/yyyy' }}</p>
+                <p>N°:01{{date | date:'MMYYYY'}}</p>
+            </div>
+            <div class="client-info">
+                <p><strong>{{clientInfo.name}}</strong><br/>
+                    {{clientInfo.address}}<br/>
+                    {{clientInfo.Tva}}
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="body">
+        <div class="object">
+            <h3>{{object}}</h3>
+        </div>
+        <table class="services">
+            <tr class="border-custom">
+                <th class="border-custom">Services</th>
+                <th class="border-custom">Quantity</th>
+                <th class="border-custom">Price/Unity</th>
+                <th class="border-custom">Total</th>
+            </tr>
+            <tr class="border-custom" *ngFor="let service of services">
+                <td class="border-custom">{{service.services}}</td>
+                <td class="border-custom">{{service.Quantity}}</td>
+                <td class="border-custom">{{service.priceUnit}} €</td>
+                <td class="border-custom">{{service.total}} €</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>Total HT</td>
+                <td>{{total}} €</td>
+            </tr>
+        </table>
+        
+    </div>
+    <div class="footer-invoice">
+        <div class="left-footer">
+            <div class="juridique-information">
+                <p>{{legalInfo}}<br/>
+                    Le règlement par virement ou chèque est accepté.
+                </p>
+            </div>
+            <div class="entreprise-tampon">
+                <img src="assets/tampon.png" width="270px">
+            </div>
+        </div>
+        <div *ngIf="!isInvoice" class="right-footer">
+            <h3>Sign here and write approved</h3>
+            <div class="placeholder-sign">
+
+            </div>
+        </div>
+        <div class="society-info">
+            <p>Forme juridique {{infoBusiness.legalStatus}} au capital social {{infoBusiness.capital}} Code Ape {{infoBusiness.codeApe}} siret {{infoBusiness.siret}} siège social {{infoBusiness.address}}</p>
+        </div>
+
+    </div>
+</div>

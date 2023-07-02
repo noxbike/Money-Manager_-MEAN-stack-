@@ -1,0 +1,59 @@
+.example-invoice{
+    position: relative;
+    height: 900px;
+    padding: 4%;
+    max-width: 743.2px;
+    min-width: 743.1px;
+    margin: 50px auto;
+    background-color: white;
+    color: black;
+    border-radius: 12px;
+    .header{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .right{
+            .invoice-info{
+                height: 55%;
+            }
+        }
+    }
+    .body{
+        text-align: center;
+        width: 100%;
+        .object{
+            width: 100%;
+            text-align: center;
+        }
+        .services{
+            margin: auto;
+            th{
+                width: 200px;
+                background-color: rgb(193, 3, 3);
+                color: white;
+            }
+        }
+        table, td, th{
+            border-collapse: collapse;
+        }
+        .border-custom{
+            border: 1px solid black;
+        }
+           
+    }
+    .footer-invoice{
+        position: absolute;
+        bottom:0;
+        margin:auto;
+        width: 82%;
+        .left-footer{
+            width: 70%;
+        }
+        .society-info{
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+    }
+}

@@ -8,8 +8,9 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        button{
-            margin: 0 15px;
+        .right{
+            display: flex;
+            flex-direction: row;
         }
         .left{
             display: flex;

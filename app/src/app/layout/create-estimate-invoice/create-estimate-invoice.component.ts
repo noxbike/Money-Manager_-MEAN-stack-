@@ -9,6 +9,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { InvoiceService } from 'src/app/services/invoice/invoice.service';
 import { Invoice } from 'src/app/interfaces/invoice';
 import { FormsModule } from '@angular/forms';
+import { NewInvoiceComponent } from 'src/app/components/new-invoice/new-invoice.component';
+import { NewEstimateComponent } from 'src/app/components/new-estimate/new-estimate.component';
 
 
 @Component({
@@ -16,7 +18,18 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './create-estimate-invoice.component.html',
   styleUrls: ['./create-estimate-invoice.component.scss'],
   standalone: true,
-  imports:[CommonModule, FormsModule, MatButtonModule, MatInputModule, MatDatepickerModule, MatNativeDateModule, MatListModule, MatDividerModule]
+  imports:[
+    CommonModule,
+    FormsModule,
+    MatButtonModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatListModule,
+    MatDividerModule,
+    NewInvoiceComponent,
+    NewEstimateComponent
+  ]
 })
 export class CreateEstimateInvoiceComponent implements OnInit {
   searchTerm: string = "";
