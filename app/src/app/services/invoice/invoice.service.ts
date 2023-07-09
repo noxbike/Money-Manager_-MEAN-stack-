@@ -7,9 +7,9 @@ import { Invoice } from 'src/app/interfaces/invoice';
 })
 export class InvoiceService {
   private invoices: Invoice[] = [];
-  private societyInfo: {} = {
+  private BusinessInfo: {} = {
     logo: "assets/logo.png",
-    societyName: "Morel Construction Réunion",
+    BusinessName: "Morel Construction Réunion",
     legalStatus: "Entreprise individuel",
     name: "Morel Josian éric",
     address: "37 chemin isnard Piton Sainte-Rose",

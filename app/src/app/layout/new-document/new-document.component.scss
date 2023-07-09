@@ -1,0 +1,52 @@
+#formulaire_document{
+    background-color: #424242;
+    padding: 20px;
+    width: 600px;
+    border-radius: 12px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.32);
+    margin: 50px auto;
+    h1{
+        text-align: center;
+    }
+    .container-form{
+        margin: auto;
+        width: 80%;
+        .Recipient{
+            display: flex;
+            flex-direction: column;
+            .custom-form-field{
+                width: 100%;
+            }
+        }
+        .services{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            a{
+                text-decoration: none;
+                color: rgb(0, 183, 229);
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+            }
+        }
+        .title{
+            margin: 20px auto;
+        }
+        .custom-form-field{
+            width: 100%;
+        }
+        .total{
+            margin: 20px auto;
+            width: 60%;
+            .ttc, .ht{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                font-weight: 700;
+            }
+        }
+    }
+}

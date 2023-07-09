@@ -1,0 +1,42 @@
+<div id="formulaire_document">
+    <h1 mat-dialog-title>New Document</h1>
+    <div mat-dialog-content class="container-form">
+    <!-- numinvoice and date generate automatically -->
+        <div class="Recipient">
+            <mat-form-field class="custom-form-field">
+                <mat-label>Recipient</mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let recipient of AllRecipients" value="Entreprise">{{recipient.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <app-new-recipient></app-new-recipient>
+        </div>
+        <div class="title">
+            <mat-form-field class="custom-form-field">
+                <mat-label>Title</mat-label>
+                <input matInput>
+            </mat-form-field>
+        </div>
+        <div class="services">
+            <h1>Nothing here</h1>
+            <a href="#">
+                <mat-icon>add_circle_outline</mat-icon>
+                add services
+            </a>
+        </div>
+        <div class="total">
+            <div class="ht">
+                <p>Total HT</p>
+                <p>0.00 €</p>
+            </div>
+            <div class="ttc">
+                <p>Total TTC</p>
+                <p>0.00 €</p>
+            </div>
+        </div>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button mat-button mat-dialog-close cdkFocusInitial>Save</button>
+    </div>
+</div>

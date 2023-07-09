@@ -20,6 +20,8 @@ import { StatistiqueViewComponent } from './layout/statistique-view/statistique-
 import { NewInvoiceComponent } from './components/new-invoice/new-invoice.component';
 import { NewEstimateComponent } from './components/new-estimate/new-estimate.component';
 import { ViewInvoiceComponent } from './view-invoice/view-invoice.component';
+import { NewDocumentComponent } from './layout/new-document/new-document.component';
+import { NewRecipientComponent } from './components/new-recipient/new-recipient.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,8 @@ import { ViewInvoiceComponent } from './view-invoice/view-invoice.component';
     NewInvoiceComponent,
     NewEstimateComponent,
     ViewInvoiceComponent,
+    NewDocumentComponent,
+    NewRecipientComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
