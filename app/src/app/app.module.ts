@@ -22,6 +22,7 @@ import { NewEstimateComponent } from './components/new-estimate/new-estimate.com
 import { ViewInvoiceComponent } from './view-invoice/view-invoice.component';
 import { NewDocumentComponent } from './layout/new-document/new-document.component';
 import { NewRecipientComponent } from './components/new-recipient/new-recipient.component';
+import { AddServicesComponent } from './components/add-services/add-services.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { NewRecipientComponent } from './components/new-recipient/new-recipient.
     ViewInvoiceComponent,
     NewDocumentComponent,
     NewRecipientComponent,
+    AddServicesComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

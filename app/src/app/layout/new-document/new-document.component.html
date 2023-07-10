@@ -17,13 +17,9 @@
                 <input matInput>
             </mat-form-field>
         </div>
-        <div class="services">
-            <h1>Nothing here</h1>
-            <a href="#">
-                <mat-icon>add_circle_outline</mat-icon>
-                add services
-            </a>
-        </div>
+        <h1 *ngIf="newInvoice.services.length == 0">Nothing here</h1>
+        <div *ngFor="let service of newInvoice.services">{{service}}</div>
+        <app-add-services (addService)="onAddService($event)"></app-add-services>
         <div class="total">
             <div class="ht">
                 <p>Total HT</p>

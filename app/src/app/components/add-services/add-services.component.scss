@@ -1,0 +1,26 @@
+.services{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    a{
+        text-decoration: none;
+        color: rgb(0, 183, 229);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+
+#addService{
+    text-align: center;
+    padding: 10px;
+    .custom-form-field{
+        width: 80%;
+        margin: 10px auto;
+    }
+    button{
+        margin: 8px;
+    }
+}

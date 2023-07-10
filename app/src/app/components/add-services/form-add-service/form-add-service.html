@@ -1,0 +1,25 @@
+<div id="addService">
+    <form (ngSubmit)="onSubmit()">
+        <h1>Add services</h1>
+        <mat-form-field class="custom-form-field">
+            <mat-label for="service">Service</mat-label>
+            <input matInput [(ngModel)]="service.service" name="service">
+        </mat-form-field>
+        <mat-form-field class="custom-form-field">
+            <mat-label for="quantity">Quantity</mat-label>
+            <input matInput [(ngModel)]="service.quantity" name="quantity">
+        </mat-form-field>
+        <mat-form-field class="custom-form-field">
+            <mat-label for="priceUnit">priceUnit</mat-label>
+            <input matInput [(ngModel)]="service.priceUnit" name="priceUnit">
+        </mat-form-field>
+        <mat-form-field class="custom-form-field">
+            <mat-label for="total">Total</mat-label>
+            <input matInput [(ngModel)]="service.total" name="total">
+        </mat-form-field>
+        <div>
+            <button mat-stroked-button mat-dialog-close>Cancel</button>
+            <button mat-stroked-button type="submit">Add</button>
+        </div>
+    </form>
+</div>
