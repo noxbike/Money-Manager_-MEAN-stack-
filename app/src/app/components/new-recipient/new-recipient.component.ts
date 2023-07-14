@@ -4,7 +4,6 @@ import {MatDialog, MatDialogModule, MatDialogRef} from '@angular/material/dialog
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule, MatLabel} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
-import { newEstimateFormDialog } from '../new-estimate/new-estimate.component';
 import { Recipient } from 'src/app/interfaces/recipient';
 import { RecipientService } from 'src/app/services/recipient/recipient.service';
 @Component({
@@ -43,7 +42,7 @@ export class NewRecipientFormDialog {
     city:'',
     phoneNumber:''
   }
-  constructor(public dialogRef: MatDialogRef<newEstimateFormDialog>, public _recipientService: RecipientService) {}
+  constructor(public dialogRef: MatDialogRef<NewRecipientFormDialog>, public _recipientService: RecipientService) {}
 
   onSubmit(): void{
    this._recipientService.addRecipient(this.recipient);
