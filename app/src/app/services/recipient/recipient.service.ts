@@ -18,12 +18,12 @@ export class RecipientService {
   }
 
   getRecipients(): Recipient[] {
-    // Retourne la liste de tous les destinataires.
+    // Return all recipients list.
     return this.recipients;
   }
 
   getRecipient(id: number): Recipient | undefined {
-    // Retourne le destinataire correspondant à l'ID spécifié.
+    // Return recipient with matching id.
     return this.recipients.find(recipient => recipient.id === id);
   }
 

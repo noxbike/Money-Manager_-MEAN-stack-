@@ -1,11 +1,21 @@
 import { Injectable } from '@angular/core';
-import { Invoice } from 'src/app/interfaces/invoice';
+import { Invoice, service } from 'src/app/interfaces/invoice';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class InvoiceService {
+  private exampleInvoice: Invoice = {
+    type:"invoice",
+    date:new Date(),
+    invoiceNumber:`1${new Date().getMonth()+1}${new Date().getFullYear()}` ,
+    title:"",
+    recipient: "",
+    services: [
+      {service: 'montage de pierre', quantity: "100", priceUnit:"2", total: "200"},
+    ],
+  }
   private invoices: Invoice[] = [];
   private BusinessInfo: {} = {
     logo: "assets/logo.png",
@@ -21,12 +31,20 @@ export class InvoiceService {
   constructor() {
     // Initialisation avec des données factices
     this.invoices = [
-      { date: new Date(2023, 6, 1), url: 'assets/facture2.pdf', invoiceNumber: "INV001", recipient: "John Doe" },
-      { date: new Date(2023, 6, 2), url: 'assets/facture2.pdf', invoiceNumber: "INV002", recipient: "Jane Smith" },
-      { date: new Date(2023, 6, 30), url: 'assets/facture2.pdf', invoiceNumber: "INV050", recipient: "Alice Johnson" },    
-      { date: new Date(2023, 7, 24), url: 'assets/facture2.pdf', invoiceNumber: 'INV001', recipient: 'John Doe' },
-      { date: new Date(2023,6,1), url: 'assets/facture2.pdf', invoiceNumber: 'INV002', recipient: 'Jane Smith' }
+      { type:"invoice", date: new Date(2023, 6, 1),title:"traveaux en sous traitance", services:[{service: 'montage de pierre', quantity: "100", priceUnit:"2", total: "200"}], invoiceNumber: "INV001", recipient: "John Doe" },
+      { type:"invoice", date: new Date(2023, 6, 2),title:"traveaux en sous traitance", services:[{service: 'montage de pierre', quantity: "100", priceUnit:"2", total: "200"}], invoiceNumber: "INV002", recipient: "Jane Smith" },
+      { type:"invoice", date: new Date(2023, 6, 30),title:"traveaux en sous traitance", services:[{service: 'montage de pierre', quantity: "100", priceUnit:"2", total: "200"}], invoiceNumber: "INV050", recipient: "Alice Johnson" },    
+      { type:"invoice", date: new Date(2023, 7, 24),title:"traveaux en sous traitance", services:[{service: 'montage de pierre', quantity: "100", priceUnit:"2", total: "200"}], invoiceNumber: 'INV001', recipient: 'John Doe' },
+      { type:"invoice", date: new Date(2023,6,1),title:"traveaux en sous traitance", services:[{service: 'montage de pierre', quantity: "100", priceUnit:"2", total: "200"}], invoiceNumber: 'INV002', recipient: 'Jane Smith' }
     ];
+  }
+
+  getExampleInvoice(): any{
+    return this.exampleInvoice
+  }
+
+  addServiceInExampleInvoice(service: service): void{
+    this.exampleInvoice.services.push(service);
   }
 
   getInvoice(invoiceNumber: string): Invoice | undefined {

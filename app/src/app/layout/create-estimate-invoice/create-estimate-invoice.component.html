@@ -33,7 +33,7 @@
             <div *ngFor="let invoice of filteredInvoices">
                 <mat-list-item class="custom-invoice">
                     <div class="container">
-                        <a [href]="invoice.url" target="_blank">Invoice</a>
+                        <a href="#" target="_blank">Invoice</a>
                         <p>{{ invoice.recipient }}</p>
                         <p>{{ invoice.invoiceNumber }}</p>
                         <p>{{ invoice.date | date }}</p>

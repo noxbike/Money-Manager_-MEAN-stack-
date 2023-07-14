@@ -1,38 +1,55 @@
 <div id="formulaire_document">
     <h1 mat-dialog-title>New Document</h1>
-    <div mat-dialog-content class="container-form">
-    <!-- numinvoice and date generate automatically -->
-        <div class="Recipient">
-            <mat-form-field class="custom-form-field">
-                <mat-label>Recipient</mat-label>
-                <mat-select>
-                    <mat-option *ngFor="let recipient of AllRecipients" value="Entreprise">{{recipient.name}}</mat-option>
-                </mat-select>
-            </mat-form-field>
-            <app-new-recipient></app-new-recipient>
-        </div>
-        <div class="title">
-            <mat-form-field class="custom-form-field">
-                <mat-label>Title</mat-label>
-                <input matInput>
-            </mat-form-field>
-        </div>
-        <h1 *ngIf="newInvoice.services.length == 0">Nothing here</h1>
-        <div *ngFor="let service of newInvoice.services">{{service}}</div>
-        <app-add-services (addService)="onAddService($event)"></app-add-services>
-        <div class="total">
-            <div class="ht">
-                <p>Total HT</p>
-                <p>0.00 €</p>
+    <form (ngSubmit)="onSubmit()">
+        <div mat-dialog-content class="container-form">
+        <!-- numinvoice and date generate automatically -->
+            <div class="Recipient">
+                <mat-form-field class="custom-form-field">
+                    <mat-label for="recipient">Recipient</mat-label>
+                    <mat-select [(ngModel)]="newInvoice.recipient" name="recipient">
+                        <mat-option *ngFor="let recipient of AllRecipients" [value]="recipient.name">{{recipient.name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <app-new-recipient></app-new-recipient>
             </div>
-            <div class="ttc">
-                <p>Total TTC</p>
-                <p>0.00 €</p>
+            <div class="title">
+                <mat-form-field class="custom-form-field">
+                    <mat-label fro="title">Title</mat-label>
+                    <input matInput name="title" [(ngModel)]="newInvoice.title">
+                </mat-form-field>
+            </div>
+            <h1 *ngIf="newInvoice.services.length == 0">Nothing here</h1>
+            <div *ngIf="newInvoice.services.length > 0" class="services">
+                <table class="table-field">
+                    <tr>
+                        <td>service</td>
+                        <td>quantity</td>
+                        <td>priceUnit</td>
+                        <td>total</td>
+                    </tr>
+                    <tr *ngFor="let service of newInvoice.services">
+                        <td>{{service.service}}</td>
+                        <td>{{service.quantity}}</td>
+                        <td>{{service.priceUnit}} €</td>
+                        <td>{{service.total}} €</td>
+                    </tr>
+                </table>
+            </div>
+            <app-add-services></app-add-services>
+            <div class="total">
+                <div class="ht">
+                    <p>Total HT</p>
+                    <p>{{ getTotal() }} €</p>
+                </div>
+                <div class="ttc">
+                    <p>Total TTC</p>
+                    <p>{{ getTotal() }} €</p>
+                </div>
             </div>
         </div>
-    </div>
-    <div mat-dialog-actions>
-        <button mat-button mat-dialog-close>Cancel</button>
-        <button mat-button mat-dialog-close cdkFocusInitial>Save</button>
-    </div>
+        <div mat-dialog-actions>
+            <button mat-button mat-dialog-close>Cancel</button>
+            <button mat-button mat-dialog-close cdkFocusInitial type="submit">Save</button>
+        </div>
+    </form>
 </div>

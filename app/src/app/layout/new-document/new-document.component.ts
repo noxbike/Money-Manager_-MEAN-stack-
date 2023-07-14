@@ -9,9 +9,12 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { AddServicesComponent } from 'src/app/components/add-services/add-services.component';
+import { AddServicesComponent, formAddServicesDialog } from 'src/app/components/add-services/add-services.component';
 import { Recipient } from 'src/app/interfaces/recipient';
 import { RecipientService } from 'src/app/services/recipient/recipient.service';
+import { InvoiceService } from 'src/app/services/invoice/invoice.service';
+import { Invoice } from 'src/app/interfaces/invoice';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-new-document',
@@ -29,26 +32,30 @@ import { RecipientService } from 'src/app/services/recipient/recipient.service';
     MatIconModule,
     CommonModule,
     NewRecipientComponent,
-    AddServicesComponent
+    AddServicesComponent,
+    formAddServicesDialog,
+    FormsModule
   ]
 })
 export class NewDocumentComponent implements OnInit {
   AllRecipients: Recipient[] = []
-  newInvoice = {
-    date:new Date().toISOString(),
-    invoiceNumber:`1${new Date().getMonth()+1}${new Date().getFullYear()}` ,
-    title:"",
-    recipient: "",
-    services: [],
-  }
+  newInvoice!: Invoice;
 
-  constructor(public _recipientService: RecipientService){}
-  ngOnInit(): void {
+  constructor(public _recipientService: RecipientService, public _invoiceService: InvoiceService){}
+
+    ngOnInit(): void {
       this.AllRecipients = this._recipientService.getRecipients()
+      this.newInvoice = this._invoiceService.getExampleInvoice()
+  
+  }
+  getTotal():number{
+    let total = 0;
+    this.newInvoice.services.forEach(service => total += parseInt(service.total))
+    return total;
   }
 
-  onAddService(service: any) : void{
-    console.log(service)
+  onSubmit(): void {
+    this._invoiceService.newInvoice(this.newInvoice);
+    console.log(this._invoiceService.getInvoices())
   }
-
 }

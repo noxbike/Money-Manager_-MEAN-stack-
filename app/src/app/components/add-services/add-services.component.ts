@@ -1,10 +1,12 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon'
 import {MatDialog, MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
+import { InvoiceService } from 'src/app/services/invoice/invoice.service';
 
 
 @Component({
@@ -31,12 +33,11 @@ export class AddServicesComponent {
   templateUrl: './form-add-service/form-add-service.html',
   styleUrls: ['./add-services.component.scss'],
   standalone: true,
-  imports: [MatIconModule, MatButtonModule, MatInputModule, MatFormFieldModule, MatDialogModule, FormsModule]
+  imports: [MatIconModule, MatButtonModule, MatInputModule, MatFormFieldModule, MatDialogModule, FormsModule, CommonModule]
 })
 
 
 export class formAddServicesDialog {
-  @Output() addService: EventEmitter<any> = new EventEmitter<any>();
 
   service = {
     service: "",
@@ -44,9 +45,15 @@ export class formAddServicesDialog {
     priceUnit:"",
     total:"",
   }
-  constructor(public dialogRef: MatDialogRef<formAddServicesDialog>) {}
+  constructor(public dialogRef: MatDialogRef<formAddServicesDialog>, public _invoiceService:InvoiceService) {}
 
   onSubmit(): void{
-    this.addService.emit('yo');
+    this._invoiceService.addServiceInExampleInvoice(this.service)
+    this.service = {
+      service: "",
+      quantity: "",
+      priceUnit:"",
+      total:"",
+    }
   }
 }
