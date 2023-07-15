@@ -15,16 +15,6 @@ export class InvoiceService implements OnInit{
     services: [],
   }
   private invoices: Invoice[] = [];
-  private BusinessInfo: {} = {
-    logo: "assets/logo.png",
-    BusinessName: "Morel Construction Réunion",
-    legalStatus: "Entreprise individuel",
-    name: "Morel Josian éric",
-    address: "37 chemin isnard Piton Sainte-Rose",
-    email: "jericmorel@gmail.com",
-    codeApe: '4120A',
-    siret: '816 636 003 00019'
-  }
 
   constructor() {
     // Initialisation avec des données factices
