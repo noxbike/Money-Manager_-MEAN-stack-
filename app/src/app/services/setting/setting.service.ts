@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class SettingService {
-  private BusinessInfo: {} = {
+  private businessInfo: {} = {
     logo: "assets/logo.png",
     BusinessName: "Morel Construction Réunion",
     legalStatus: "Entreprise individuel",
@@ -25,4 +25,22 @@ export class SettingService {
   }
 
   constructor() { }
+
+  // READ
+  getCondition(): any {
+    return this.condition;
+  }
+
+  getBusinessInfo(): any {
+    return this.businessInfo;
+  }
+
+  // UPDATE
+  updateCondition(updatedCondition: any): void {
+    this.condition = updatedCondition;
+  }
+
+  updateBusinessInfo(updatedBusinessInfo: any): void {
+    this.businessInfo = updatedBusinessInfo;
+  }
 }
