@@ -1,0 +1,73 @@
+<mat-card>
+    <mat-card-header class="card-header">
+       <mat-card-title>Business Information</mat-card-title>
+   </mat-card-header>
+   <mat-card-content>
+       <form (ngSubmit)="onSubmit()">
+           <div class="form-column">
+                <div class="form-row">
+                    <!--Name-->
+                    <mat-form-field appearance="fill">
+                        <mat-label for="name">Name</mat-label>
+                        <input matInput name="name" [(ngModel)]="businessInfo.name">
+                    </mat-form-field>
+                    <!-- Logo -->
+                    <mat-form-field appearance="fill">
+                        <mat-label for="logo">Logo</mat-label>
+                        <input matInput name="logo" [(ngModel)]="businessInfo.logo">
+                    </mat-form-field>
+                </div>
+                <div class="form-row">
+                    <!-- Business Name -->
+                    <mat-form-field appearance="fill">
+                        <mat-label for="businessName">Business Name</mat-label>
+                        <input matInput name="businessName" [(ngModel)]="businessInfo.businessName">
+                    </mat-form-field>
+                    
+                    <!-- Address -->
+                    <mat-form-field appearance="fill">
+                        <mat-label for="address">Address</mat-label>
+                        <input matInput name="address" [(ngModel)]="businessInfo.address">
+                    </mat-form-field>
+                </div>
+                <div class="form-row">
+                    <!-- Legal Status -->
+                    <mat-form-field appearance="fill">
+                        <mat-label for="legalStatus">Legal Status</mat-label>
+                        <input matInput name="legalStatus" [(ngModel)]="businessInfo.legalStatus">
+                    </mat-form-field>
+                    
+                    <!-- Code Ape -->
+                    <mat-form-field appearance="fill">
+                        <mat-label for="codeApe">Code Ape</mat-label>
+                        <input matInput name="codeApe" [(ngModel)]="businessInfo.codeApe" >
+                    </mat-form-field>
+                </div>
+                <div class="form-row">
+                    <!-- Siret -->
+                    <mat-form-field appearance="fill">
+                        <mat-label for="siret">Siret</mat-label>
+                        <input matInput name="siret" [(ngModel)]="businessInfo.siret">
+                    </mat-form-field>
+            
+                    <!-- IBAN -->
+                    <mat-form-field appearance="fill">
+                        <mat-label for="iban">IBAN</mat-label>
+                        <input matInput name="iban" [(ngModel)]="businessInfo.iban">
+                    </mat-form-field>
+                </div>
+                <div class="form-row">
+                    <!-- TVA Code -->
+                    <mat-form-field appearance="fill">
+                        <mat-label for="tvaCode">TVA Code</mat-label>
+                        <input matInput name="tvaCode" [(ngModel)]="businessInfo.tvaCode">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div>
+                <button mat-stroked-button mat-dialog-close>Cancel</button>
+                <button mat-stroked-button mat-dialog-close type="submit">Add</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

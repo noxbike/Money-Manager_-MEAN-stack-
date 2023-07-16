@@ -1,0 +1,38 @@
+<mat-card>
+    <mat-card-header class="card-header">
+        <mat-card-title>Document Information</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form>
+            <div class="form-column">
+                <!-- Deadline to Pay -->
+                <mat-form-field appearance="fill">
+                <mat-label for="deadLinePay">Deadline to Pay</mat-label>
+                <input matInput name="deadLinePay" [(ngModel)]="condition.deadLinePay">
+                </mat-form-field>
+
+                <!-- Estimate -->
+                <mat-form-field appearance="fill">
+                <mat-label for="estimate">Estimate</mat-label>
+                <input matInput name="estimate" [(ngModel)]="condition.estimate">
+                </mat-form-field>
+
+                <!-- Invoices -->
+                <mat-form-field appearance="fill">
+                <mat-label for="invoices">Invoices</mat-label>
+                <input matInput name="invoices" [(ngModel)]="condition.invoices">
+                </mat-form-field>
+
+                <!-- No TVA Justify -->
+                <mat-form-field appearance="fill">
+                <mat-label for="noTvaJustify">No TVA Justify</mat-label>
+                <input matInput name="noTvaJustify" [(ngModel)]="condition.noTvaJustify">
+                </mat-form-field>
+            </div>
+            <div>
+                <button mat-stroked-button mat-dialog-close>Cancel</button>
+                <button mat-stroked-button mat-dialog-close type="submit">Add</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

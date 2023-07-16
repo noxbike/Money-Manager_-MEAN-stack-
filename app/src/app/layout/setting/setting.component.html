@@ -1,0 +1,147 @@
+<div id="settings">
+	<mat-card class="container-card">
+		<mat-card-header class="card-header">
+		  <mat-card-title>Account setting</mat-card-title>
+		  <button mat-icon-button (click)="editAccount('0ms', '0ms')">
+			<mat-icon>edit</mat-icon>
+		</button>
+		</mat-card-header>
+		<mat-card-content>
+			<form>
+				<div class="form-column">
+					<div class="form-row">
+	
+						<!-- Pseudo -->
+						<div>
+							<mat-label>Pseudo</mat-label>
+							<p class="dataText">{{account.pseudo}}
+						</div>
+						
+						<!-- password -->
+						<div>
+							<mat-label>password</mat-label>
+							<p class="dataText">*************</p>
+						</div>
+					</div>
+					
+				</div>
+			</form>
+		</mat-card-content>
+	</mat-card>
+	<mat-card class="container-card">
+		<mat-card-header class="card-header">
+		   <mat-card-title>Business Information</mat-card-title>
+		   <button mat-icon-button (click)="editBusinessInfo('0ms', '0ms')">
+			   <mat-icon>edit</mat-icon>
+			</button>
+		</mat-card-header>
+		<mat-card-content>
+			<div class="form-column">
+				<div class="form-row">
+					<!--Name-->
+					<div>
+						<mat-label>Name</mat-label>
+						<p class="dataText">{{businessInfo.name}}</p>
+					</div>
+					<!-- Logo -->
+					<div>
+						   <mat-label>Logo</mat-label>
+						   <p>
+						</div>
+					</div>
+					<div class="form-row">
+						<!-- Business Name -->
+						<div>
+							<mat-label>Business Name</mat-label>
+							<p class="dataText">{{businessInfo.businessName}}</p>
+						</div>
+						
+						<!-- Email -->
+						<div>
+							<mat-label>Email</mat-label>
+							<p class="dataText">{{businessInfo.email}}</p>
+						</div>
+					</div>
+					<div class="form-row">
+						<!-- Address -->
+						<div>
+						   <mat-label>Address</mat-label>
+						   <p class="dataText">{{businessInfo.address}}</p>
+					   </div>
+						<!-- Legal Status -->
+					   <div>
+						   <mat-label>Legal Status</mat-label>
+						   <p class="dataText">{{businessInfo.legalStatus}}</p>
+					   </div>
+					   
+					</div>
+					<div class="form-row">
+					   <!-- Code Ape -->
+					   <div>
+						   <mat-label>Code Ape</mat-label>
+						   <p class="dataText">{{businessInfo.codeApe}}</p>
+					   </div>
+					   <!-- Siret -->
+					   <div>
+						   <mat-label>Siret</mat-label>
+						   <p class="dataText">{{businessInfo.siret}}</p>
+					   </div>
+			   
+					</div>
+					<div class="form-row">
+						<!-- IBAN -->
+						<div>
+							<mat-label>IBAN</mat-label>
+							<p class="dataText">{{businessInfo.siret}}</p>
+						</div>
+						<!-- TVA Code -->
+					   <div>
+						   <mat-label>TVA Code</mat-label>
+						   <p class="dataText">{{businessInfo.tvaCode}}</p>
+					   </div>
+				   </div>
+				</div>
+		   </mat-card-content>
+	   </mat-card>
+	   <mat-card class="container-card">
+		<mat-card-header class="card-header">
+			<mat-card-title>Document Information</mat-card-title>
+			<button mat-icon-button (click)="editConditionDocument('0ms', '0ms')">
+				<mat-icon>edit</mat-icon>
+			</button>
+		</mat-card-header>
+		<mat-card-content>
+			<form>
+				<div class="form-row">
+					<!-- Deadline to Pay -->
+					<div>
+					<mat-label>Deadline to Pay</mat-label>
+					<p class="dataText">{{condition.deadLinePay}}</p>
+					</div>
+	
+					<!-- Estimate -->
+					<div>
+					<mat-label>Estimate</mat-label>
+					<p class="dataText">{{condition.estimate}}</p>
+					</div>
+				</div>
+	
+				<div class="form-row">
+					<!-- Invoices -->
+					<div>
+					<mat-label>Invoices</mat-label>
+					<p class="dataText">{{condition.invoices}}</p>
+					</div>
+	
+					<!-- No TVA Justify -->
+					<div>
+					<mat-label>No TVA Justify</mat-label>
+					<p class="dataText">{{condition.noTvaJustify}}</p>
+					</div>
+				</div>
+			</form>
+		</mat-card-content>
+	</mat-card>
+		
+</div>
+  

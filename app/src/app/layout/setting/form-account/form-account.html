@@ -1,0 +1,26 @@
+<mat-card>
+    <mat-card-header class="card-header">
+      <mat-card-title>Account setting</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form (ngSubmit)="onSubmit()">
+            <div class="form-column">
+                    <!-- Pseudo -->
+                    <mat-form-field appearance="fill">
+                        <mat-label for="pseudo">Pseudo</mat-label>
+                        <input matInput name="pseudo" [(ngModel)]="account.pseudo">
+                    </mat-form-field>
+                    
+                    <!-- password -->
+                    <mat-form-field appearance="fill">
+                        <mat-label for="password">password</mat-label>
+                        <input matInput name="password" [(ngModel)]="account.password">
+                    </mat-form-field>
+            </div>
+            <div>
+                <button mat-stroked-button mat-dialog-close>Cancel</button>
+                <button mat-stroked-button mat-dialog-close type="submit">Add</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

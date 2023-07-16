@@ -1,0 +1,50 @@
+/* styles.css (ou tout autre fichier CSS de votre choix) */
+#settings{
+    width: 700px;
+    margin: auto;
+
+}
+
+.container-card{
+    margin: 20px auto;
+}
+
+.form-column {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Facultatif : ajout d'un espace entre chaque champ */
+  }
+
+  .form-row{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .form-row div {
+    flex: 1; /* Pour que chaque champ occupe la même largeur */
+    padding: 0 10px;
+}
+
+.card-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+mat-label{
+    color: rgb(168, 168, 168);
+}
+
+mat-form-field{
+    margin: auto 10px;
+}
+
+.dataText{
+    font-size: 16px;
+}
+
+button{
+    margin: auto 10px;
+}

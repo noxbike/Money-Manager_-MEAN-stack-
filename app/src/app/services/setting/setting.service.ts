@@ -1,14 +1,21 @@
 import { Injectable } from '@angular/core';
+import { Account } from 'src/app/interfaces/account';
+import { BusinessInfo } from 'src/app/interfaces/businessInfo';
+import { ConditionDocument } from 'src/app/interfaces/conditionDocument';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SettingService {
-  private businessInfo: {} = {
-    logo: "assets/logo.png",
-    BusinessName: "Morel Construction Réunion",
-    legalStatus: "Entreprise individuel",
+  private account: Account = {
+    pseudo:"jericmorel",
+    password: "monpasswordprivate",
+  }
+  private businessInfo: BusinessInfo = {
     name: "Morel Josian éric",
+    logo: "assets/logo.png",
+    businessName: "Morel Construction Réunion",
+    legalStatus: "Entreprise individuel",
     address: "37 chemin isnard Piton Sainte-Rose",
     email: "jericmorel@gmail.com",
     codeApe: '4120A',
@@ -17,7 +24,7 @@ export class SettingService {
     tvaCode: "FR38818636003"
   }
 
-  private condition = {
+  private condition: ConditionDocument = {
     deadLinePay: "30",
     estimate: "Veuillez nous retourner le devis signé et précédé de la mention: Bon pour accord",
     invoices: "Aucun escompte consenti pour règlement anticipé En cas de retard de paiement, une pénalité de 3 fois le taux d'intérêt légal sera appliquée, à laquelle s'ajoutera une indemnité forfaitaire pour frais de recouvrement de 40€.",
@@ -27,20 +34,27 @@ export class SettingService {
   constructor() { }
 
   // READ
-  getCondition(): any {
+  getAccount(): Account {
+    return this.account;
+  }
+  getCondition(): ConditionDocument {
     return this.condition;
   }
 
-  getBusinessInfo(): any {
+  getBusinessInfo(): BusinessInfo {
     return this.businessInfo;
   }
 
   // UPDATE
-  updateCondition(updatedCondition: any): void {
-    this.condition = updatedCondition;
+  updateAccount(updatedAccount: Account): void {
+    this.account = updatedAccount;
   }
 
-  updateBusinessInfo(updatedBusinessInfo: any): void {
+  updateBusinessInfo(updatedBusinessInfo: BusinessInfo): void {
     this.businessInfo = updatedBusinessInfo;
+  }
+
+  updateCondition(updatedCondition: ConditionDocument): void {
+    this.condition = updatedCondition;
   }
 }

@@ -23,6 +23,7 @@ import { ViewInvoiceComponent } from './view-invoice/view-invoice.component';
 import { NewDocumentComponent } from './layout/new-document/new-document.component';
 import { NewRecipientComponent } from './components/new-recipient/new-recipient.component';
 import { AddServicesComponent } from './components/add-services/add-services.component';
+import { SettingComponent } from './layout/setting/setting.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { AddServicesComponent } from './components/add-services/add-services.com
     NewDocumentComponent,
     NewRecipientComponent,
     AddServicesComponent,
+    SettingComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
