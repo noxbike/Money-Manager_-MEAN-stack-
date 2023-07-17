@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { BusinessInfo } from 'src/app/interfaces/businessInfo';
 import { ConditionDocument } from 'src/app/interfaces/conditionDocument';
 import { SettingService } from 'src/app/services/setting/setting.service';
+import { Account } from 'src/app/interfaces/account';
 
 @Component({
   selector: 'app-setting',
@@ -25,39 +26,21 @@ import { SettingService } from 'src/app/services/setting/setting.service';
     MatDialogModule
   ]
 })
-export class SettingComponent implements OnInit {
-  account= {
-    pseudo:"",
-    password:"",
-  }
-  businessInfo: BusinessInfo = {
-    name: "",
-    logo: "",
-    businessName: "",
-    legalStatus: "",
-    address: "",
-    email: "",
-    codeApe: '',
-    siret: '',
-    iban: "",
-    tvaCode: ""
-  }
-  
-  condition: ConditionDocument = {
-    deadLinePay: "",
-    estimate: "",
-    invoices: "",
-    noTvaJustify:""
+export class SettingComponent {
+ 
+  constructor(private _settingService: SettingService, public dialog: MatDialog){}
+
+
+  getAccount(): Account {
+    return this._settingService.getAccount();
   }
 
-  constructor(private _settingService: SettingService, public dialog: MatDialog){
-    this.businessInfo = this._settingService.getBusinessInfo();
-    this.condition = this._settingService.getCondition();
-    this.account = this._settingService.getAccount();
+  getBusinessInfo(): BusinessInfo{
+    return this._settingService.getBusinessInfo();
   }
 
-  ngOnInit(): void {
-      
+  getCondition(): ConditionDocument{
+    return this._settingService.getCondition();
   }
   
   editAccount(enterAnimationDuration: string, exitAnimationDuration: string):void{
@@ -67,6 +50,7 @@ export class SettingComponent implements OnInit {
       exitAnimationDuration,
     });
   }
+
   editBusinessInfo(enterAnimationDuration: string, exitAnimationDuration: string):void{
     this.dialog.open(formBusinessInfoDialog, {
       width: '',
@@ -74,6 +58,7 @@ export class SettingComponent implements OnInit {
       exitAnimationDuration,
     });
   }
+  
   editConditionDocument(enterAnimationDuration: string, exitAnimationDuration: string):void{
     this.dialog.open(formConditionDocumentDialog, {
       width: '400px',
@@ -98,16 +83,11 @@ export class SettingComponent implements OnInit {
     FormsModule
   ],
 })
-export class formAccountDialog implements OnInit {
-  account= {
-    pseudo:"",
-    password:"",
-  }
+export class formAccountDialog {
+  account:Account
 
-  constructor(public _settingSevice: SettingService){}
-
-  ngOnInit(): void {
-      this.account =this._settingSevice.getAccount();
+  constructor(public _settingSevice: SettingService){
+    this.account = {...this._settingSevice.getAccount()};
   }
 
   onSubmit(): void{
@@ -130,14 +110,11 @@ export class formAccountDialog implements OnInit {
     FormsModule
   ],
 })
-export class formBusinessInfoDialog implements OnInit {
-  businessInfo!: BusinessInfo
+export class formBusinessInfoDialog{
+  businessInfo: BusinessInfo
 
-  constructor(private _settingSevice: SettingService){
-    this.businessInfo ={...this._settingSevice.getBusinessInfo()};
-  }
-  
-  ngOnInit(): void {
+  constructor(private _settingSevice: SettingService) {
+    this.businessInfo = {...this._settingSevice.getBusinessInfo()};
   }
 
   onSubmit(): void {
@@ -159,18 +136,11 @@ export class formBusinessInfoDialog implements OnInit {
     FormsModule
   ],
 })
-export class formConditionDocumentDialog implements OnInit {
-  condition: ConditionDocument = {
-    deadLinePay: "",
-    estimate: "",
-    invoices: "",
-    noTvaJustify:""
-  }
+export class formConditionDocumentDialog {
+  condition: ConditionDocument
 
-  constructor(public _settingSevice: SettingService){}
-
-  ngOnInit(): void {
-      this.condition = this._settingSevice.getCondition();
+  constructor(public _settingSevice: SettingService){
+    this.condition = {...this._settingSevice.getCondition()};
   }
 
   onSubmit(): void {

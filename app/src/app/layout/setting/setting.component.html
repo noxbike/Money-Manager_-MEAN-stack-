@@ -14,7 +14,7 @@
 						<!-- Pseudo -->
 						<div>
 							<mat-label>Pseudo</mat-label>
-							<p class="dataText">{{account.pseudo}}
+							<p class="dataText">{{getAccount().pseudo}}
 						</div>
 						
 						<!-- password -->
@@ -41,7 +41,7 @@
 					<!--Name-->
 					<div>
 						<mat-label>Name</mat-label>
-						<p class="dataText">{{businessInfo.name}}</p>
+						<p class="dataText">{{getBusinessInfo().name}}</p>
 					</div>
 					<!-- Logo -->
 					<div>
@@ -53,25 +53,25 @@
 						<!-- Business Name -->
 						<div>
 							<mat-label>Business Name</mat-label>
-							<p class="dataText">{{businessInfo.businessName}}</p>
+							<p class="dataText">{{getBusinessInfo().businessName}}</p>
 						</div>
 						
 						<!-- Email -->
 						<div>
 							<mat-label>Email</mat-label>
-							<p class="dataText">{{businessInfo.email}}</p>
+							<p class="dataText">{{getBusinessInfo().email}}</p>
 						</div>
 					</div>
 					<div class="form-row">
 						<!-- Address -->
 						<div>
 						   <mat-label>Address</mat-label>
-						   <p class="dataText">{{businessInfo.address}}</p>
+						   <p class="dataText">{{getBusinessInfo().address}}</p>
 					   </div>
 						<!-- Legal Status -->
 					   <div>
 						   <mat-label>Legal Status</mat-label>
-						   <p class="dataText">{{businessInfo.legalStatus}}</p>
+						   <p class="dataText">{{getBusinessInfo().legalStatus}}</p>
 					   </div>
 					   
 					</div>
@@ -79,12 +79,12 @@
 					   <!-- Code Ape -->
 					   <div>
 						   <mat-label>Code Ape</mat-label>
-						   <p class="dataText">{{businessInfo.codeApe}}</p>
+						   <p class="dataText">{{getBusinessInfo().codeApe}}</p>
 					   </div>
 					   <!-- Siret -->
 					   <div>
 						   <mat-label>Siret</mat-label>
-						   <p class="dataText">{{businessInfo.siret}}</p>
+						   <p class="dataText">{{getBusinessInfo().siret}}</p>
 					   </div>
 			   
 					</div>
@@ -92,12 +92,12 @@
 						<!-- IBAN -->
 						<div>
 							<mat-label>IBAN</mat-label>
-							<p class="dataText">{{businessInfo.siret}}</p>
+							<p class="dataText">{{getBusinessInfo().siret}}</p>
 						</div>
 						<!-- TVA Code -->
 					   <div>
 						   <mat-label>TVA Code</mat-label>
-						   <p class="dataText">{{businessInfo.tvaCode}}</p>
+						   <p class="dataText">{{getBusinessInfo().tvaCode}}</p>
 					   </div>
 				   </div>
 				</div>
@@ -116,13 +116,13 @@
 					<!-- Deadline to Pay -->
 					<div>
 					<mat-label>Deadline to Pay</mat-label>
-					<p class="dataText">{{condition.deadLinePay}}</p>
+					<p class="dataText">{{getCondition().deadLinePay}}</p>
 					</div>
 	
 					<!-- Estimate -->
 					<div>
 					<mat-label>Estimate</mat-label>
-					<p class="dataText">{{condition.estimate}}</p>
+					<p class="dataText">{{getCondition().estimate}}</p>
 					</div>
 				</div>
 	
@@ -130,13 +130,13 @@
 					<!-- Invoices -->
 					<div>
 					<mat-label>Invoices</mat-label>
-					<p class="dataText">{{condition.invoices}}</p>
+					<p class="dataText">{{getCondition().invoices}}</p>
 					</div>
 	
 					<!-- No TVA Justify -->
 					<div>
 					<mat-label>No TVA Justify</mat-label>
-					<p class="dataText">{{condition.noTvaJustify}}</p>
+					<p class="dataText">{{getCondition().noTvaJustify}}</p>
 					</div>
 				</div>
 			</form>
