@@ -1,25 +1,32 @@
 <mat-card>
     <mat-card-header class="card-header">
-      <mat-card-title>Account setting</mat-card-title>
+      <mat-card-title>Edit password</mat-card-title>
     </mat-card-header>
     <mat-card-content>
         <form (ngSubmit)="onSubmit()">
             <div class="form-column">
-                    <!-- Pseudo -->
+                    <p *ngIf="message.length > 0 ">{{getMessage()}}</p>
+                    <!-- old-password -->
                     <mat-form-field appearance="fill">
-                        <mat-label for="pseudo">Pseudo</mat-label>
-                        <input matInput name="pseudo" [(ngModel)]="account.pseudo">
+                        <mat-label for="password">Old password</mat-label>
+                        <input matInput name="password" [(ngModel)]="oldPassword">
+                    </mat-form-field>
+
+                    <!-- new-password -->
+                    <mat-form-field appearance="fill">
+                        <mat-label for="new-password">New password</mat-label>
+                        <input matInput name="new-password" [(ngModel)]="password">
                     </mat-form-field>
                     
-                    <!-- password -->
+                    <!-- repeat-password -->
                     <mat-form-field appearance="fill">
-                        <mat-label for="password">password</mat-label>
-                        <input matInput name="password" [(ngModel)]="account.password">
+                        <mat-label for="repeatPassword">Repeat password</mat-label>
+                        <input matInput name="repeatPassword" [(ngModel)]="repeatPassword">
                     </mat-form-field>
             </div>
             <div>
                 <button mat-stroked-button mat-dialog-close>Cancel</button>
-                <button mat-stroked-button mat-dialog-close type="submit">Add</button>
+                <button mat-stroked-button type="submit">Add</button>
             </div>
         </form>
     </mat-card-content>

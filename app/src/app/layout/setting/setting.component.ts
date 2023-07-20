@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
@@ -10,6 +10,7 @@ import { BusinessInfo } from 'src/app/interfaces/businessInfo';
 import { ConditionDocument } from 'src/app/interfaces/conditionDocument';
 import { SettingService } from 'src/app/services/setting/setting.service';
 import { Account } from 'src/app/interfaces/account';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-setting',
@@ -58,7 +59,7 @@ export class SettingComponent {
       exitAnimationDuration,
     });
   }
-  
+
   editConditionDocument(enterAnimationDuration: string, exitAnimationDuration: string):void{
     this.dialog.open(formConditionDocumentDialog, {
       width: '400px',
@@ -80,18 +81,35 @@ export class SettingComponent {
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
-    FormsModule
+    FormsModule,
+    CommonModule
   ],
 })
 export class formAccountDialog {
-  account:Account
+  account!:Account
+  oldPassword!:string;
+  password: string = "";
+  repeatPassword: string = "";
+  message : string = "fff";
 
-  constructor(public _settingSevice: SettingService){
-    this.account = {...this._settingSevice.getAccount()};
+  constructor(public _settingSevice: SettingService, public dialog: MatDialog){}
+
+  getMessage():string{
+    return this.message
   }
-
   onSubmit(): void{
-    this._settingSevice.updateAccount(this.account);
+    if(this.oldPassword == this.account.password){
+      if(this.repeatPassword == this.password){
+        this._settingSevice.updateAccount(this.account);
+        this.dialog.closeAll
+      }
+      else{
+        this.message = "Your repeat password not match"
+      }
+    }
+    else{
+      this.message = "Your old password is incorrect try again"
+    }
   }
 }
 
