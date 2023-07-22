@@ -90,16 +90,18 @@ export class formAccountDialog {
   oldPassword!:string;
   password: string = "";
   repeatPassword: string = "";
-  message : string = "fff";
+  message: string = "";
 
-  constructor(public _settingSevice: SettingService, public dialog: MatDialog){}
+  constructor(public _settingSevice: SettingService, public dialog: MatDialog){
+    this.account = _settingSevice.getAccount();
+  }
 
   getMessage():string{
     return this.message
   }
   onSubmit(): void{
-    if(this.oldPassword == this.account.password){
-      if(this.repeatPassword == this.password){
+    if(this.oldPassword === this.account.password){
+      if(this.repeatPassword === this.password){
         this._settingSevice.updateAccount(this.account);
         this.dialog.closeAll
       }

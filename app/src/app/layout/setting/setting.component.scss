@@ -48,3 +48,14 @@ mat-form-field{
 button{
     margin: auto 10px;
 }
+
+.message-custom{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: rgb(255, 0, 0);
+    font-weight: 600;
+    padding-left: 10px;
+    
+    
+}

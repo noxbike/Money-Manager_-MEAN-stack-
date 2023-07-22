@@ -5,28 +5,28 @@
     <mat-card-content>
         <form (ngSubmit)="onSubmit()">
             <div class="form-column">
-                    <p *ngIf="message.length > 0 ">{{getMessage()}}</p>
+                    <p class="message-custom" *ngIf="message.length > 0 "><mat-icon>warning</mat-icon>{{getMessage()}}</p>
                     <!-- old-password -->
                     <mat-form-field appearance="fill">
                         <mat-label for="password">Old password</mat-label>
-                        <input matInput name="password" [(ngModel)]="oldPassword">
+                        <input matInput type="password" name="password" [(ngModel)]="oldPassword">
                     </mat-form-field>
 
                     <!-- new-password -->
                     <mat-form-field appearance="fill">
                         <mat-label for="new-password">New password</mat-label>
-                        <input matInput name="new-password" [(ngModel)]="password">
+                        <input matInput type="password" name="new-password" [(ngModel)]="password">
                     </mat-form-field>
                     
                     <!-- repeat-password -->
                     <mat-form-field appearance="fill">
                         <mat-label for="repeatPassword">Repeat password</mat-label>
-                        <input matInput name="repeatPassword" [(ngModel)]="repeatPassword">
+                        <input matInput type="password" name="repeatPassword" [(ngModel)]="repeatPassword">
                     </mat-form-field>
             </div>
             <div>
                 <button mat-stroked-button mat-dialog-close>Cancel</button>
-                <button mat-stroked-button type="submit">Add</button>
+                <button mat-stroked-button mat-dialog-close type="submit">Add</button>
             </div>
         </form>
     </mat-card-content>
