@@ -12,10 +12,13 @@
                         <input matInput name="name" [(ngModel)]="businessInfo.name">
                     </mat-form-field>
                     <!-- Logo -->
-                    <mat-form-field appearance="fill">
-                        <mat-label for="logo">Logo</mat-label>
-                        <input matInput name="logo" [(ngModel)]="businessInfo.logo">
-                    </mat-form-field>
+                    <div class="form-logo-custom">
+                        <img *ngIf="imagePreviewUrl" [src]="imagePreviewUrl" alt="business-logo" width="120px"/>
+                        <img *ngIf="!imagePreviewUrl" [src]="businessInfo.logo" alt="business-logo" width="120px"/>
+                        <label for="logo">Ajouter un fichier</label>
+                        <input type="file" (change)="onFileSelected($event)" name="logo" id="logo" accept="image/png, image/jpeg, image/png" [(ngModel)]="businessInfo.logo" hidden/>
+                    </div>
+                    
                 </div>
                 <div class="form-row">
                     <!-- Business Name -->

@@ -99,6 +99,7 @@ export class formAccountDialog {
   getMessage():string{
     return this.message
   }
+  
   onSubmit(): void{
     if(this.oldPassword === this.account.password){
       if(this.repeatPassword === this.password){
@@ -127,19 +128,60 @@ export class formAccountDialog {
     MatButtonModule,
     MatInputModule,
     MatIconModule,
-    FormsModule
+    FormsModule,
+    CommonModule
   ],
 })
 export class formBusinessInfoDialog{
   businessInfo: BusinessInfo
+  imagePreviewUrl!: string | ArrayBuffer | null
+  selectedFile!: File
 
   constructor(private _settingSevice: SettingService) {
     this.businessInfo = {...this._settingSevice.getBusinessInfo()};
   }
 
+  onFileSelected(event: any): void {
+    console.log(this.selectedFile)
+    this.selectedFile = event.target.files[0] as File;
+    const selectedImage = event.target.files[0];
+
+
+    if (selectedImage) {
+      // use fileReader to generate url for image preview
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.imagePreviewUrl = reader.result;
+      };
+      reader.readAsDataURL(selectedImage);
+    }
+  }
+
+
   onSubmit(): void {
+    if (this.selectedFile) {
+      // Create url to preview image
+      const reader = new FileReader();
+      reader.onload = () => {
+        const imageBlob = new Blob([reader.result as ArrayBuffer], { type: this.selectedFile.type });
+        // save image in assets file
+        const imagePath = 'assets/' + this.selectedFile.name;
+        this.businessInfo.logo = imagePath;
+        this.saveFile(imageBlob, imagePath);
+      };
+      reader.readAsArrayBuffer(this.selectedFile);
+    }
+
     this._settingSevice.updateBusinessInfo(this.businessInfo)
   }
+
+  saveFile(blob: Blob, filePath: string): void {
+    const anchor = document.createElement('a');
+    anchor.href = window.URL.createObjectURL(blob);
+    anchor.download = filePath;
+    anchor.click();
+  }
+
 }
 @Component({
   selector: 'formConditionDocumentDialog',
@@ -158,7 +200,7 @@ export class formBusinessInfoDialog{
 })
 export class formConditionDocumentDialog {
   condition: ConditionDocument
-
+  
   constructor(public _settingSevice: SettingService){
     this.condition = {...this._settingSevice.getCondition()};
   }

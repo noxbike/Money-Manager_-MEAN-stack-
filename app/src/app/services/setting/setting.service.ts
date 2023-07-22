@@ -13,7 +13,7 @@ export class SettingService {
   }
   private businessInfo: BusinessInfo = {
     name: "Morel Josian éric",
-    logo: "assets/logo.png",
+    logo: "assets/logoMorel.png",
     businessName: "Morel Construction Réunion",
     legalStatus: "Entreprise individuel",
     address: "37 chemin isnard Piton Sainte-Rose",
