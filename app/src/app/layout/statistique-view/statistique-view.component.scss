@@ -1,5 +1,5 @@
 #statistics{
-    width: 700px;
+    width: 900px;
     margin: 50px auto;
     .statistics-container{
         width: 100%;
@@ -9,14 +9,14 @@
         flex-wrap: wrap;
         .health{
             margin: 50px auto;
-            width: 100%;
+            width: 500px;
         }
         .spending, .income{
-            width: 300px;
+            width: 400px;
         }
         .category-camembert{
             margin: 50px auto;
-            width: 100%;
+            width:350px;
         }
     }
 }

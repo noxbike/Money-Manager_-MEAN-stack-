@@ -24,6 +24,7 @@ import { NewDocumentComponent } from './layout/new-document/new-document.compone
 import { NewRecipientComponent } from './components/new-recipient/new-recipient.component';
 import { AddServicesComponent } from './components/add-services/add-services.component';
 import { SettingComponent } from './layout/setting/setting.component';
+import { CategorySpendingComponent } from './components/category-spending/category-spending.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { SettingComponent } from './layout/setting/setting.component';
     NewRecipientComponent,
     AddServicesComponent,
     SettingComponent,
+    CategorySpendingComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
