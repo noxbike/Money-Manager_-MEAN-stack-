@@ -25,6 +25,8 @@ import { NewRecipientComponent } from './components/new-recipient/new-recipient.
 import { AddServicesComponent } from './components/add-services/add-services.component';
 import { SettingComponent } from './layout/setting/setting.component';
 import { CategorySpendingComponent } from './components/category-spending/category-spending.component';
+import { HealthChartComponent } from './components/health-chart/health-chart.component';
+import { IncomeChartComponent } from './components/income-chart/income-chart.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +57,8 @@ import { CategorySpendingComponent } from './components/category-spending/catego
     AddServicesComponent,
     SettingComponent,
     CategorySpendingComponent,
+    HealthChartComponent,
+    IncomeChartComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

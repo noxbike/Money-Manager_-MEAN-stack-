@@ -8,15 +8,15 @@
         justify-content: space-between;
         flex-wrap: wrap;
         .health{
-            margin: 50px auto;
+            margin: 25px 0 25px 0;
             width: 500px;
         }
         .spending, .income{
-            width: 400px;
+            width: 435px;
         }
         .category-camembert{
-            margin: 50px auto;
-            width:350px;
+            margin: 25px 0 25px 0;
+            width:370px;
         }
     }
 }

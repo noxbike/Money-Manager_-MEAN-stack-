@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartConfiguration, ChartOptions, ChartType } from "chart.js";
+import { ChartConfiguration, ChartOptions } from "chart.js";
 import { ExpensesDataService } from '../../services/expensesData/expenses-data.service';
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.component.html',
-  styleUrls: ['./chart.component.scss']
+  styleUrls: ['./chart.component.scss'],
 })
 export class ChartComponent implements OnInit {
   title = 'charts';
@@ -35,6 +35,8 @@ export class ChartComponent implements OnInit {
         tension: 0.5,
         borderColor: '#42adf5',
         backgroundColor: 'rgba(66, 173, 245, 0.2)',
+        pointBackgroundColor: 'rgba(66, 173, 245, 1)',
+        pointBorderColor: 'rgba(66, 173, 245, 1)',
       },
     ]
   };
