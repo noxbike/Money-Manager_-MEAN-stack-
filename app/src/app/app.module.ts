@@ -27,6 +27,7 @@ import { SettingComponent } from './layout/setting/setting.component';
 import { CategorySpendingComponent } from './components/category-spending/category-spending.component';
 import { HealthChartComponent } from './components/health-chart/health-chart.component';
 import { IncomeChartComponent } from './components/income-chart/income-chart.component';
+import { SpendingChartComponent } from './components/spending-chart/spending-chart.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { IncomeChartComponent } from './components/income-chart/income-chart.com
     CategorySpendingComponent,
     HealthChartComponent,
     IncomeChartComponent,
+    SpendingChartComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
