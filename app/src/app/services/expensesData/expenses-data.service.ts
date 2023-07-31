@@ -13,15 +13,18 @@ export class ExpensesDataService implements OnInit {
   charge: Array<boolean> = [true, false]
   justificatif: string = "https://as2.ftcdn.net/v2/jpg/02/11/49/41/1000_F_211494142_xekWE4XQFoBrF4dex1DQKc7xBBon1HYo.jpg"
   today = new Date();
-  totalSpendingWeek: number[] = [];
+  totalDataOfWeek: number[]= [];
 
-  constructor() { 
-  }
+  constructor() {}
 
   ngOnInit(): void {
     this.generateData();
   }
   
+  getTotalofWeek(): number[] {
+    return this.totalDataOfWeek
+  }
+
   getExpenses(): Array<Expense> {
     return this.expenses
   }
@@ -41,7 +44,7 @@ export class ExpensesDataService implements OnInit {
         result.filter(item => count += item.amount)
         grandTableau.push(count)
     }
-   this.totalSpendingWeek.push(...grandTableau)
+    this.totalDataOfWeek.push(...grandTableau)
 }
   
   generateData():void {
@@ -84,7 +87,7 @@ export class ExpensesDataService implements OnInit {
         amount: Math.floor(Math.random() *(100 - 10) + 10),
         tag: this.tag[random],
         charge: true,
-        date: new Date(this.today.getFullYear(), this.today.getMonth(),Math.floor(Math.random() * 30), Math.floor(Math.random() * 24)),
+        date: new Date(this.today.getFullYear(), this.today.getMonth()+1,Math.floor(Math.random() * 30), Math.floor(Math.random() * 24)),
         justificatif: this.justificatif,
       }
       this.expenses.push(item);

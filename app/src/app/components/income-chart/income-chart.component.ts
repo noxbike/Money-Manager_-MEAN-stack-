@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Chart } from 'chart.js';
+import { IncomesDataService } from 'src/app/services/incomesData/incomes-data.service';
 
 @Component({
   selector: 'app-income-chart',
@@ -10,7 +11,10 @@ import { Chart } from 'chart.js';
 export class IncomeChartComponent {
   areaChart: any;
 
+  constructor(public _incomeDataService: IncomesDataService){}
+
   ngOnInit() {
+    this._incomeDataService.generateData()
     this.initAreaChart();
   }
 
@@ -25,7 +29,7 @@ export class IncomeChartComponent {
         datasets: [
           {
             label: 'Données',
-            data: [30, 40, 25, 35], // Remplacez ces valeurs par vos données
+            data: this._incomeDataService.getIncomes(), // Remplacez ces valeurs par vos données
             tension: 0.5,
             backgroundColor: 'rgba(0, 128, 0, 0.2)', // Couleur de remplissage de l'aire
             borderColor: 'rgba(0, 128, 0, 1)', // Couleur de la bordure

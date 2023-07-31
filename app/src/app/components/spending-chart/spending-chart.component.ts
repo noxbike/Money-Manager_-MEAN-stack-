@@ -5,21 +5,19 @@ import { ExpensesDataService } from 'src/app/services/expensesData/expenses-data
 @Component({
   selector: 'app-spending-chart',
   templateUrl: './spending-chart.component.html',
-  styleUrls: ['./spending-chart.component.scss'],
-  standalone: true
+  styleUrls: ['./spending-chart.component.scss']
 })
 export class SpendingChartComponent implements OnInit {
   areaChart: any;
-  data!: number[]
+  data: number[] = [];
 
   constructor(private _expensesDataService: ExpensesDataService){}
-
+  
   ngOnInit(): void {
-    this.initAreaChart();
-    this._expensesDataService.generateData();
+    this._expensesDataService.generateData()
     this._expensesDataService.spendingOfTheWeek();
-    this.data = this._expensesDataService.totalSpendingWeek
-    console.log(this.data);
+    this.data = this._expensesDataService.getTotalofWeek();
+    this.initAreaChart();
   }
 
   initAreaChart() {
@@ -41,7 +39,7 @@ export class SpendingChartComponent implements OnInit {
         datasets: [
           {
             label: 'spending',
-            data: [14, 231, 149, 154, 307, 206, 0], // Remplacez ces valeurs par vos données
+            data: this.data, // Remplacez ces valeurs par vos données
             tension: 0.5,
             backgroundColor: 'rgba(0, 128, 0, 0.2)', // Couleur de remplissage de l'aire
             borderColor: 'rgba(200, 0, 0, 1)', // Couleur de la bordure

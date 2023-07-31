@@ -28,12 +28,16 @@ import { CategorySpendingComponent } from './components/category-spending/catego
 import { HealthChartComponent } from './components/health-chart/health-chart.component';
 import { IncomeChartComponent } from './components/income-chart/income-chart.component';
 import { SpendingChartComponent } from './components/spending-chart/spending-chart.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ChartComponent,
+    StatistiqueViewComponent,
+    SpendingChartComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +52,6 @@ import { SpendingChartComponent } from './components/spending-chart/spending-cha
     AddExpenseComponent,
     AddIncomeComponent,
     CreateEstimateInvoiceComponent,
-    StatistiqueViewComponent,
     NgChartsModule,
     NewInvoiceComponent,
     NewEstimateComponent,
@@ -60,7 +63,8 @@ import { SpendingChartComponent } from './components/spending-chart/spending-cha
     CategorySpendingComponent,
     HealthChartComponent,
     IncomeChartComponent,
-    SpendingChartComponent,
+    MatButtonModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

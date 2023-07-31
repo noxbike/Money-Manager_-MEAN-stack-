@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
+import { ExpensesDataService } from 'src/app/services/expensesData/expenses-data.service';
 
 @Component({
   selector: 'app-health-chart',
@@ -9,8 +10,14 @@ import { Chart } from 'chart.js';
 })
 export class HealthChartComponent implements OnInit {
   areaChart: any;
+  data: number[] = []
+
+  constructor(public _expensesService: ExpensesDataService){}
 
   ngOnInit() {
+    this._expensesService.generateData()
+    this._expensesService.spendingOfTheWeek()
+    this.data = this._expensesService.getTotalofWeek()
     this.initAreaChart();
   }
 
@@ -21,11 +28,19 @@ export class HealthChartComponent implements OnInit {
     this.areaChart = new Chart(ctx, {
       type: 'line', // Utilisez le type "line" pour créer un graphique de type "area chart"
       data: {
-        labels: ['Label 1', 'Label 2', 'Label 3', 'Label 4'],
+        labels: [
+          'Sunday',
+          'Monday',
+          'Tuesday',
+          'Wednesday',
+          'Thursday',
+          'Friday',
+          'Saturday'
+        ],
         datasets: [
           {
             label: 'Données',
-            data: [30, 40, 25, 35], // Remplacez ces valeurs par vos données
+            data: this.data, // Remplacez ces valeurs par vos données
             fill: true,
             tension: 0.5,
             backgroundColor: 'rgba(54, 162, 235, 0.2)', // Couleur de remplissage de l'aire
