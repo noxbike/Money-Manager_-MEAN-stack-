@@ -87,7 +87,7 @@ export class ExpensesDataService implements OnInit {
         amount: Math.floor(Math.random() *(100 - 10) + 10),
         tag: this.tag[random],
         charge: true,
-        date: new Date(this.today.getFullYear(), this.today.getMonth()+1,Math.floor(Math.random() * 30), Math.floor(Math.random() * 24)),
+        date: new Date(this.today.getFullYear(), this.today.getMonth(),Math.floor(Math.random() * 30), Math.floor(Math.random() * 24)),
         justificatif: this.justificatif,
       }
       this.expenses.push(item);

@@ -6,4 +6,34 @@
     max-width: 100%;
     height: 200px;
     
-  }  
+  }
+
+  .incomeTotal {
+    color:green;
+    text-align: right;;
+    font-weight: 700;
+    font-size: xx-large;
+  }
+
+  .incomeList {
+    list-style: none;
+  }
+  
+  .incomeItem{
+    margin: 20px 0;
+    padding: 7px 10px;
+    border-left: 10px solid green;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .income{
+    font-size: medium;
+    font-weight: 500;
+  }
+
+  .date{
+    color: gray;
+    font-size: small;
+  }

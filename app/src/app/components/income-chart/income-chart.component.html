@@ -1,3 +1,13 @@
-<div>
-    <canvas id="lineChart"></canvas>
-</div>  
+<div id="income_container">
+    <h1 class="incomeTotal">+{{sum()}}€</h1>
+    <ul class="incomeList">
+        <li class="incomeItem" *ngFor="let item of income">
+            <span class="income">
+                {{item.amount}} € 
+            </span>
+            <span class="date">
+                {{item.date | date:'dd MMMM'}}
+            </span>
+        </li>
+    </ul>
+</div>

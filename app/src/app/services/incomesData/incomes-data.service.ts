@@ -16,18 +16,28 @@ export class IncomesDataService {
     return income;
   }
 
+  getMonthIncomes(): any{
+    const today = new Date();
+    const month = today.getMonth()
+    let result = this.incomes.filter((income:any) => new Date(income.date).getMonth() == month);
+    return(result)
+  }
+
   generateData(): void {
     // 5000 per month for 12month
     let today = new Date();
     let years = today.getFullYear()
     for(let i = 0; i < 12; i++){
-      let item = {
-        id: 1,
-        amount: 5000,
-        from: "Btoi Btp",
-        date: new Date(today.getFullYear(), i, 25),
+      for(let j = 0; j < 2; j++){
+        let day = j == 0 ? 10 : 25;
+        let item = {
+          id: 1,
+          amount: 5000,
+          from: "Btoi Btp",
+          date: new Date(years, i, day),
+        }
+        this.incomes.push(item);
       }
-      this.incomes.push(item);
     }
   }
 }
