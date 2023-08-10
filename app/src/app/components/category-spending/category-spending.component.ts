@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart }from 'chart.js';
+import { Expense } from 'src/app/interfaces/expense';
+import { ExpensesDataService } from 'src/app/services/expensesData/expenses-data.service';
 
 @Component({
   selector: 'app-category-spending',
@@ -9,9 +11,25 @@ import { Chart }from 'chart.js';
 })
 export class CategorySpendingComponent implements OnInit {
   pieChart: any;
+  label = ['Matériel', 'Gazole', 'Employée', 'Prélèvement/Frais', 'Repas', 'Réparations/Maintenance'];
+  spendingData: Expense[] = [];
+  chartData: number[] = [];
 
+  constructor(public _expenseService: ExpensesDataService){}
   ngOnInit() {
+    this._expenseService.generateData()
+    this.spendingData = this._expenseService.getExpenses();
+    this.chartData = this.counterSpendingCategory();
     this.initPieChart();
+  }
+
+  counterSpendingCategory():number[] {
+    let category = []
+    for(let item of this.label){
+      let countCategory = this.spendingData.filter(expense => expense.tag === item)
+      category.push(countCategory.length);
+    }
+    return category;
   }
 
   initPieChart() {
@@ -21,10 +39,10 @@ export class CategorySpendingComponent implements OnInit {
     this.pieChart = new Chart(ctx, {
       type: 'pie',
       data: {
-        labels: ['Material', 'Gasoil', 'Salary', 'Taxes', 'Repas', 'Réparations/Maintenance'],
+        labels: this.label,
         datasets: [
           {
-            data: [30, 20, 25, 15, 50, 10], // Remplacez ces valeurs par vos données
+            data: this.chartData, // Remplacez ces valeurs par vos données
             backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#ff0000', '#808080' ], // Couleurs des secteurs
             
             borderWidth: 0
