@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
 import { ExpensesDataService } from 'src/app/services/expensesData/expenses-data.service';
+import { AccountStatusDataService } from 'src/app/services/accountStatusData/account-status-data.service';
 
 @Component({
   selector: 'app-health-chart',
@@ -10,15 +11,29 @@ import { ExpensesDataService } from 'src/app/services/expensesData/expenses-data
 })
 export class HealthChartComponent implements OnInit {
   areaChart: any;
-  data: number[] = []
+  data:number[] = []
 
-  constructor(public _expensesService: ExpensesDataService){}
+  constructor(public _accountStatusDataService: AccountStatusDataService){}
 
   ngOnInit() {
-    this._expensesService.generateData()
-    this._expensesService.spendingOfTheWeek()
-    this.data = this._expensesService.getTotalofWeek()
+    this.getData()
     this.initAreaChart();
+  }
+
+  getData() : void{
+    let today =  new Date();
+    let day = today.getDay();
+    today.setHours(23);
+    today.setMinutes(59);
+    let startWeek = new Date(today.setDate(today.getDate() - (day + 1)));
+    let endWeek = new Date(today.setDate(startWeek.getDate() + 7))
+    let item = this._accountStatusDataService.stateOfAccountEachDay()
+    let data = [];
+    for(let key of item){
+      if(key.date >= startWeek && key.date <= endWeek)
+      data.push(key.sum)
+    }
+    this.data = data
   }
 
   initAreaChart() {

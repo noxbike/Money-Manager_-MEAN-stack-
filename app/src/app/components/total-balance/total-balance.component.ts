@@ -2,6 +2,7 @@ import { Component} from '@angular/core';
 import {MatIconModule} from '@angular/material/icon'
 import { AddExpenseComponent } from '../add-expense/add-expense.component';
 import { AddIncomeComponent } from '../add-income/add-income.component';
+import { AccountStatusDataService } from 'src/app/services/accountStatusData/account-status-data.service';
 
 @Component({
   selector: 'app-total-balance',
@@ -11,10 +12,10 @@ import { AddIncomeComponent } from '../add-income/add-income.component';
   imports:[MatIconModule, AddExpenseComponent, AddIncomeComponent]
 })
 export class TotalBalanceComponent{
-  balance: number = 2.438;
+  balance: number = 0;
 
-  constructor() {
-
+  constructor(private _accountStatusService: AccountStatusDataService) {
+    this.balance = this._accountStatusService.getTotal();
   }
   
   

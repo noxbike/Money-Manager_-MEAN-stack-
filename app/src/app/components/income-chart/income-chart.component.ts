@@ -18,7 +18,6 @@ export class IncomeChartComponent {
   }
   
   ngOnInit() {
-    this._incomeDataService.generateData()
     this.income = this._incomeDataService.getMonthIncomes()
   }
 

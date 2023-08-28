@@ -1,14 +1,17 @@
 import { Injectable } from '@angular/core';
+import { Income } from 'src/app/interfaces/income';
 
 @Injectable({
   providedIn: 'root'
 })
 export class IncomesDataService {
-  incomes: any = [];
+  incomes: Income[] = [];
 
-  constructor() { }
+  constructor() { 
+    this.generateData();
+  }
 
-  getIncomes(): any{
+  getIncomes(): number[]{
     let income = []
     for(let i = 0; i < this.incomes.length; i++){
       income.push(this.incomes[i].amount);
@@ -16,7 +19,7 @@ export class IncomesDataService {
     return income;
   }
 
-  getMonthIncomes(): any{
+  getMonthIncomes(): Income[]{
     const today = new Date();
     const month = today.getMonth()
     let result = this.incomes.filter((income:any) => new Date(income.date).getMonth() == month);
@@ -24,7 +27,7 @@ export class IncomesDataService {
   }
 
   generateData(): void {
-    // 5000 per month for 12month
+    // 10000 per month for 12month
     let today = new Date();
     let years = today.getFullYear()
     for(let i = 0; i < 12; i++){

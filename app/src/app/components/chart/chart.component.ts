@@ -8,15 +8,28 @@ import { ExpensesDataService } from '../../services/expensesData/expenses-data.s
 })
 export class ChartComponent implements OnInit {
   title = 'charts';
-  data : number[];
-  constructor(private _expensesDataService: ExpensesDataService){
-    this.data = this._expensesDataService.totalDataOfWeek;
-  }
+  data : number[] = [];
 
+  constructor(private _expensesDataService: ExpensesDataService){
+    this.data = this.getData();
+  }
+  
   ngOnInit(): void {
     this._expensesDataService.generateData();
-    this._expensesDataService.spendingOfTheWeek();
-    console.log(this._expensesDataService.totalDataOfWeek);
+  }
+
+  getData(): number[] {
+    let expenseData = this._expensesDataService.getSumExpensesForEachDay();
+    let day = new Date().getDay()
+    let monday = new Date(new Date().setDate(new Date().getDate() - day+1))
+    let endWeek = new Date(new Date().setDate(monday.getDate() + 7))
+
+    let array = expenseData.filter((date) => date.date >= monday && date.date <= endWeek)
+    let result = []
+    for(let item of array){
+      result.push(item.sum)
+    }
+    return result
   }
 
   public lineChartData: ChartConfiguration<'line'>['data'] = {
@@ -31,7 +44,7 @@ export class ChartComponent implements OnInit {
     ],
     datasets: [
       {
-        data: this._expensesDataService.totalDataOfWeek,
+        data: this.getData(),
         label: 'spending',
         fill: true,
         tension: 0.5,

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
 import { ExpensesDataService } from 'src/app/services/expensesData/expenses-data.service';
+import { Expense } from 'src/app/interfaces/expense';
 
 @Component({
   selector: 'app-spending-chart',
@@ -14,10 +15,22 @@ export class SpendingChartComponent implements OnInit {
   constructor(private _expensesDataService: ExpensesDataService){}
   
   ngOnInit(): void {
-    this._expensesDataService.generateData()
-    this._expensesDataService.spendingOfTheWeek();
-    this.data = this._expensesDataService.getTotalofWeek();
+    this.data = this.getData()
     this.initAreaChart();
+  }
+
+  getData(): number[] {
+    let expenseData = this._expensesDataService.getSumExpensesForEachDay();
+    let day = new Date().getDay()
+    let monday = new Date(new Date().setDate(new Date().getDate() - day+1))
+    let endWeek = new Date(new Date().setDate(monday.getDate() + 7))
+
+    let array = expenseData.filter((date) => date.date >= monday && date.date <= endWeek)
+    let result = []
+    for(let item of array){
+      result.push(item.sum)
+    }
+    return result
   }
 
   initAreaChart() {

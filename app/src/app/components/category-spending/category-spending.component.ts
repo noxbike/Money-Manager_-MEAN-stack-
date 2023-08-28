@@ -17,7 +17,6 @@ export class CategorySpendingComponent implements OnInit {
 
   constructor(public _expenseService: ExpensesDataService){}
   ngOnInit() {
-    this._expenseService.generateData()
     this.spendingData = this._expenseService.getExpenses();
     this.chartData = this.counterSpendingCategory();
     this.initPieChart();

@@ -1,10 +1,10 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Expense } from 'src/app/interfaces/expense';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ExpensesDataService implements OnInit {
+export class ExpensesDataService {
   expenses: Array<Expense> = [];
 
   category: Array<"Expense" | "Income"> = ["Expense" , "Income"];
@@ -13,39 +13,55 @@ export class ExpensesDataService implements OnInit {
   charge: Array<boolean> = [true, false]
   justificatif: string = "https://as2.ftcdn.net/v2/jpg/02/11/49/41/1000_F_211494142_xekWE4XQFoBrF4dex1DQKc7xBBon1HYo.jpg"
   today = new Date();
-  totalDataOfWeek: number[]= [];
 
-  constructor() {}
-
-  ngOnInit(): void {
+  constructor() {
     this.generateData();
-  }
-  
-  getTotalofWeek(): number[] {
-    return this.totalDataOfWeek
+    this.getSumExpensesForEachDay();
   }
 
   getExpenses(): Array<Expense> {
     return this.expenses
   }
 
-  spendingOfTheWeek(): void {
-    let day = new Date().getDay()
-    let monday = new Date(new Date().setDate(new Date().getDate() - day+1))
-    let endWeek = new Date(new Date().setDate(monday.getDate() + 6))
-    
-    let arry = this.expenses.filter((date: Expense) => date.date >= monday && date.date <= endWeek)
-    
-    let grandTableau = [];
-    for(let i = 0; i < 7; i++){
-        let data = new Date(new Date().setDate(monday.getDate() + i))
-        let result = arry.filter(item => item.date.getDate() === data.getDate());
-        let count = 0;
-        result.filter(item => count += item.amount)
-        grandTableau.push(count)
+  getSumExpensesForEachDay(): Array<{sum: number, date:Date}> {
+    this.expenses.sort((a:any,b:any) => a.date - b.date)
+    let date, month, year = 0;
+    let sumExpensesForEachDay = []
+    for(let i = 0; i < this.expenses.length; i++){
+
+      if(date != this.expenses[i].date.getDate() || month != this.expenses[i].date.getMonth() || year != this.expenses[i].date.getFullYear()){
+        date = this.expenses[i].date.getDate();
+        month = this.expenses[i].date.getMonth();
+        year = this.expenses[i].date.getFullYear();
+        sumExpensesForEachDay.push({sum:this.expenses[i].amount, date:this.expenses[i].date})
+      }
+      else{
+          sumExpensesForEachDay[sumExpensesForEachDay.length - 1].sum += this.expenses[i].amount 
+      }
     }
-    this.totalDataOfWeek.push(...grandTableau)
-}
+    sumExpensesForEachDay = this.addMissingDate(sumExpensesForEachDay)
+    return sumExpensesForEachDay
+  }
+
+   addMissingDate(array: Array<{sum: number, date: Date}>): Array<{sum: number, date: Date}>{
+    for(let i = 0; i < array.length; i++){
+      let firstDateOfArray = new Date(array[0].date)
+      firstDateOfArray.setHours(0)
+      firstDateOfArray.setMinutes(0)
+      firstDateOfArray.setSeconds(0)
+      let arrayDate = new Date(array[i].date)
+      arrayDate.setHours(0)
+      arrayDate.setMinutes(0)
+      arrayDate.setSeconds(0)
+      let dateToCheck = new Date(firstDateOfArray.setDate(firstDateOfArray.getDate() + i))
+      if(dateToCheck.getTime() != arrayDate.getTime()){
+          array.splice(i, 0,{sum: 0, date: dateToCheck})
+          i = 0;
+      }
+      
+    }
+    return array
+   }
   
   generateData():void {
     let name = [
@@ -65,8 +81,8 @@ export class ExpensesDataService implements OnInit {
       "Total St-Denis"
       ],
       [
-        "Mickael",
-        "Payet"
+        "employer1",
+        "employer3"
       ],
       [
         "Urssaf-cotisation",
