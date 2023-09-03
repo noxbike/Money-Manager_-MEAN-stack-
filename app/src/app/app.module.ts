@@ -9,7 +9,6 @@ import { FilterComponent } from './components/filter/filter.component';
 import { TableauComponent } from './components/tableau/tableau.component';
 import { TopMenuComponent } from './components/top-menu/top-menu.component';
 import { MenuComponent } from './components/menu/menu.component';
-import { ChartComponent } from './components/chart/chart.component';
 import { HomeComponent } from './layout/home/home.component';
 import { FactureComponent } from './components/facture/facture.component';
 import { NgChartsModule } from 'ng2-charts';
@@ -35,7 +34,6 @@ import { MatCardModule } from '@angular/material/card';
   declarations: [
     AppComponent,
     HomeComponent,
-    ChartComponent,
     StatistiqueViewComponent,
     SpendingChartComponent,
   ],
