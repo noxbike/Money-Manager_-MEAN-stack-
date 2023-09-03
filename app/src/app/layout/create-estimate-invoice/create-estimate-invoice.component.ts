@@ -9,8 +9,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { InvoiceService } from 'src/app/services/invoice/invoice.service';
 import { Invoice } from 'src/app/interfaces/invoice';
 import { FormsModule } from '@angular/forms';
-import { NewInvoiceComponent } from 'src/app/components/new-invoice/new-invoice.component';
-import { NewEstimateComponent } from 'src/app/components/new-estimate/new-estimate.component';
+import { NewEstimateInvoiceComponent } from 'src/app/components/new-estimate-invoice/new-estimate-invoice.component';
 
 
 @Component({
@@ -27,8 +26,7 @@ import { NewEstimateComponent } from 'src/app/components/new-estimate/new-estima
     MatNativeDateModule,
     MatListModule,
     MatDividerModule,
-    NewInvoiceComponent,
-    NewEstimateComponent
+    NewEstimateInvoiceComponent
   ]
 })
 export class CreateEstimateInvoiceComponent implements OnInit {

@@ -15,8 +15,12 @@
             <div>
                 Click here to create a quote or invoice
             </div>
-            <app-new-invoice/>
-            <app-new-estimate/>
+            <div>
+                <app-new-estimate-invoice [title]="'New Invoice'"/>
+            </div>
+            <div>
+                <app-new-estimate-invoice [title]="'New Estimate'"/>
+            </div>
         </div>
     </div>
 </div>

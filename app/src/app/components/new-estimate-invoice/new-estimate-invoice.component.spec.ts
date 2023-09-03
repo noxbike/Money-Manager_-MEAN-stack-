@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NewEstimateComponent } from './new-estimate.component';
+import { NewEstimateInvoiceComponent } from './new-estimate-invoice.component';
 
 describe('NewEstimateComponent', () => {
-  let component: NewEstimateComponent;
-  let fixture: ComponentFixture<NewEstimateComponent>;
+  let component: NewEstimateInvoiceComponent;
+  let fixture: ComponentFixture<NewEstimateInvoiceComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [NewEstimateComponent]
+      declarations: [NewEstimateInvoiceComponent]
     });
-    fixture = TestBed.createComponent(NewEstimateComponent);
+    fixture = TestBed.createComponent(NewEstimateInvoiceComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

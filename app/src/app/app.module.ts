@@ -16,8 +16,7 @@ import { AddExpenseComponent } from './components/add-expense/add-expense.compon
 import { AddIncomeComponent } from './components/add-income/add-income.component';
 import { CreateEstimateInvoiceComponent } from './layout/create-estimate-invoice/create-estimate-invoice.component';
 import { StatistiqueViewComponent } from './layout/statistique-view/statistique-view.component';
-import { NewInvoiceComponent } from './components/new-invoice/new-invoice.component';
-import { NewEstimateComponent } from './components/new-estimate/new-estimate.component';
+import { NewEstimateInvoiceComponent } from './components/new-estimate-invoice/new-estimate-invoice.component';
 import { ViewInvoiceComponent } from './view-invoice/view-invoice.component';
 import { NewDocumentComponent } from './layout/new-document/new-document.component';
 import { NewRecipientComponent } from './components/new-recipient/new-recipient.component';
@@ -34,8 +33,8 @@ import { MatCardModule } from '@angular/material/card';
   declarations: [
     AppComponent,
     HomeComponent,
-    StatistiqueViewComponent,
     SpendingChartComponent,
+    StatistiqueViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,8 +50,7 @@ import { MatCardModule } from '@angular/material/card';
     AddIncomeComponent,
     CreateEstimateInvoiceComponent,
     NgChartsModule,
-    NewInvoiceComponent,
-    NewEstimateComponent,
+    NewEstimateInvoiceComponent,
     ViewInvoiceComponent,
     NewDocumentComponent,
     NewRecipientComponent,
